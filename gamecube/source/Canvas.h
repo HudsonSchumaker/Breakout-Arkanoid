@@ -7,6 +7,8 @@ class Canvas
         int h;
 
     public:
+        Canvas();
+        Canvas(int w, int h);
         void setWidth(int w) { this->w = w; };
 	    int getWidth() const { return w; };
 
