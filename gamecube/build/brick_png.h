@@ -6,7 +6,7 @@
 extern const uint8_t brick_png[];
 extern const uint8_t brick_png_end[];
 #if __cplusplus >= 201103L
-static constexpr size_t brick_png_size=4426;
+static constexpr size_t brick_png_size=324;
 #else
-static const size_t brick_png_size=4426;
+static const size_t brick_png_size=324;
 #endif

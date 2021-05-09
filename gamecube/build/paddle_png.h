@@ -6,7 +6,7 @@
 extern const uint8_t paddle_png[];
 extern const uint8_t paddle_png_end[];
 #if __cplusplus >= 201103L
-static constexpr size_t paddle_png_size=241;
+static constexpr size_t paddle_png_size=648;
 #else
-static const size_t paddle_png_size=241;
+static const size_t paddle_png_size=648;
 #endif

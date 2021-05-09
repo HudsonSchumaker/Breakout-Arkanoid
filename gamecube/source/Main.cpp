@@ -9,54 +9,60 @@
 #include <grrlib.h>
 #include <asndlib.h>
 
-#include "Brick.h"
 #include "Sprite.h"
+#include "Brick.h"
+#include "Paddle.h"
 #include "Color.h"
+
 #include "font_ttf.h"
 #include "brick_png.h"
-
-#define GRRLIB_BLACK 0x000000FF
-#define GRRLIB_WHITE 0xFFFFFFFF
-#define COLOR 0xFF0000FF
+#include "paddle_png.h"
 
 const int screenWidth = 640;
 const int screenHeight = 480;
 void ini();
+void input();
 void end();
-unsigned long createRGBA(int r, int g, int b, int a);
 
 GRRLIB_ttfFont *font;
-GRRLIB_texImg *brick;
+GRRLIB_texImg *brick_img;
+GRRLIB_texImg *paddle_img;
 
-int main(void)
-{
+Paddle paddle(192, 462);
+
+int main(void) {
     ini();
-
-    Brick bricks [64];
+    Brick bricks [16];
+   
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
-    brick = GRRLIB_LoadTexture(brick_png);
+    brick_img = GRRLIB_LoadTexture(brick_png);
+    paddle_img = GRRLIB_LoadTexture(paddle_png);
+
     
+    paddle.setTexture(paddle_img);
+
     int k = 0;
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            bricks[k] = Brick(j * brick->w + 30, i * brick->h + 50);
-            bricks[k].setTexture(brick);
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            bricks[k] = Brick(j * brick_img->w + 192, i * brick_img->h + 64);
+            bricks[k].setTexture(brick_img);
             k++;
         }
     }
 
     for (;;) {
-        GRRLIB_FillScreen(Color::getBlue()); 
+        GRRLIB_FillScreen(Color::getBlack()); 
         PAD_ScanPads();
         
-        if(PAD_ButtonsDown(0) & PAD_BUTTON_START)
-        {
-            break;
-        }
+        if (PAD_ButtonsDown(0) & PAD_BUTTON_START) { break; }
+        input();
 
         for (unsigned int i = 0; i < sizeof bricks; i++) {
             bricks[i].draw();
-        }                    
+        }
+
+        paddle.draw();
+        
 
         //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
         GRRLIB_Render();        
@@ -64,6 +70,19 @@ int main(void)
 
     end();
     return 0;
+}
+
+void input() {
+ 
+    int dx =  PAD_StickX(0);
+    if (dx > 18) {
+        paddle.move(4);
+        return;
+    } 
+    if (dx < -18) {
+        paddle.move(-4);
+        return;
+    }
 }
 
 void ini() {
