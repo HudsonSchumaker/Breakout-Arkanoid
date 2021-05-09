@@ -7,8 +7,6 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
-#include <string>
-#include <iostream>
 #include "Point.h"
 #include "Dimension.h"
 
@@ -48,6 +46,5 @@ public:
 	void setHeight(int h) { this->h = h; };
 	int getHeight() const { return h; };
 
-	string toString() { return "Rectangle[" + to_string(w) + ", " + to_string(h) + "]"; };
 };
 #endif /* RECTANGLE_H */

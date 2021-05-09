@@ -9,7 +9,10 @@
 #include <grrlib.h>
 #include <asndlib.h>
 
+#include "Brick.h"
+#include "Sprite.h"
 #include "font_ttf.h"
+#include "brick_png.h"
 
 #define GRRLIB_BLACK 0x000000FF
 #define GRRLIB_WHITE 0xFFFFFFFF
@@ -25,7 +28,9 @@ int main(void)
     ini();
 
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
-       
+    Brick brick(0, 0, 64, 16); 
+    brick.sprite = GRRLIB_LoadTexture(brick_png);
+
     for (;;)   
     {
         GRRLIB_FillScreen(GRRLIB_BLACK); 
@@ -36,6 +41,7 @@ int main(void)
             break;
         }                    
 
+        brick.draw();
         GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
         GRRLIB_Render();        
     }

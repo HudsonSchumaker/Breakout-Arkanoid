@@ -8,15 +8,9 @@
 #ifndef POINT_H
 #define POINT_H
 
-#include <string>
-#include <iostream>
-
-using namespace std;
-
 class Point {
 private:
-    int x;
-    int y;
+    int x, y;
     
 public:
     Point();
@@ -31,7 +25,5 @@ public:
     
     void setY(int y) { this->y = y; };
     int getY() const { return y; };
-    
-    string toString() { return "Point[" + to_string(x) + ", " + to_string(y) + "]"; };
 };
 #endif /* POINT_H */
