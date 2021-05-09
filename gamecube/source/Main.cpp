@@ -16,14 +16,15 @@
 
 const int screenWidth = 640;
 const int screenHeight = 480;
+void ini();
+void end();
 
+GRRLIB_ttfFont *font;
 int main(void)
 {
-    ASND_Init();
-    PAD_Init();
-    GRRLIB_Init();
+    ini();
 
-    GRRLIB_ttfFont *font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
+    font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
        
     for (;;)   
     {
@@ -39,8 +40,17 @@ int main(void)
         GRRLIB_Render();        
     }
 
-    GRRLIB_FreeTTF(font);
-    GRRLIB_Exit();
-    return 0;
+    end();
 }
 
+void ini() {
+    ASND_Init();
+    PAD_Init();
+    GRRLIB_Init();
+}
+
+void end() {
+    GRRLIB_FreeTTF(font);
+    GRRLIB_Exit();
+  //  return 0;
+}
