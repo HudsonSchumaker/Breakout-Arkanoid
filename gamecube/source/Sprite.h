@@ -12,6 +12,12 @@ class Sprite {
         int x, y , w, h;
 
     public:
+		Sprite();
+		Sprite(int w, int h);
+		Sprite(int x, int y, int w, int h);
+
+		virtual void draw();
+
         void setX(int x) { this->x = x; };
 	    int getX() const { return x; };
 
