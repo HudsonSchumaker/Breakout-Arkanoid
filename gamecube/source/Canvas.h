@@ -1,3 +1,9 @@
+// 
+// Canvas.h
+// SchumakerTeam Lab.
+// Hudson Schumaker
+//
+
 #ifndef CANVAS_H
 #define CANVAS_H
 class Canvas
@@ -8,6 +14,12 @@ class Canvas
     public:
         Canvas();
         Canvas(int w, int h);
+
+        virtual void ini();
+        virtual void render();
+        virtual void input(); 
+        virtual void loop();
+
         void setWidth(int w) { this->w = w; };
 	    int getWidth() const { return w; };
 

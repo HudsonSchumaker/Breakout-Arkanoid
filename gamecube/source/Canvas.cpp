@@ -1,3 +1,8 @@
+// 
+// Canvas.cpp
+// SchumakerTeam Lab.
+// Hudson Schumaker
+//
 #include "Canvas.h"
 
 Canvas::Canvas() {
