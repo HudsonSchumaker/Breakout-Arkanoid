@@ -1,5 +1,5 @@
 //
-// Ball.hpp
+// Ball.h
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //
