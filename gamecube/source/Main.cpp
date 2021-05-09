@@ -27,22 +27,32 @@ int main(void)
 {
     ini();
 
+    Brick bricks [30];
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
-    Brick brick(0, 0, 64, 16); 
-    brick.sprite = GRRLIB_LoadTexture(brick_png);
+    
+    int k = 0;
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 6; j++) {
+            bricks[k] = Brick(j * 64 + 30, i * 15 + 50);
+            bricks[k].setTexture(GRRLIB_LoadTexture(brick_png));
+            k++;
+        }
+    }
 
-    for (;;)   
-    {
+    for (;;) {
         GRRLIB_FillScreen(GRRLIB_BLACK); 
         PAD_ScanPads();
         
         if(PAD_ButtonsDown(0) & PAD_BUTTON_START)
         {
             break;
+        }
+
+        for (int i = 0; i < 30; i++) {
+            bricks[i].draw();
         }                    
 
-        brick.draw();
-        GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
+        //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
         GRRLIB_Render();        
     }
 

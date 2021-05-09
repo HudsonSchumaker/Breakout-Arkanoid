@@ -7,6 +7,13 @@
 #include "Sprite.h"
 #include "Rectangle.h"
 
+Sprite::Sprite() {}
+
+Sprite::Sprite(int x, int y) {
+	this->x = x;
+	this->y = y;
+}
+
 Sprite::Sprite(int x, int y, int w, int h) {
 	this->x = x;
 	this->y = y;
