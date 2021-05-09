@@ -3,8 +3,7 @@
 class Canvas
 {
     private:
-        int w;
-        int h;
+        int w, h;
 
     public:
         Canvas();
