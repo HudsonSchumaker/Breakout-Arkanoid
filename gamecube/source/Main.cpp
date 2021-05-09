@@ -36,7 +36,7 @@ int main(void)
     int k = 0;
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
-            bricks[k] = Brick(j * 64 + 30, i * 16 + 50);
+            bricks[k] = Brick(j * brick->w + 30, i * brick->h + 50);
             bricks[k].setTexture(brick);
             k++;
         }
