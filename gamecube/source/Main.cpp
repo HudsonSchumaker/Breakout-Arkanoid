@@ -23,18 +23,21 @@ void ini();
 void end();
 
 GRRLIB_ttfFont *font;
+GRRLIB_texImg *brick;
+
 int main(void)
 {
     ini();
 
-    Brick bricks [30];
+    Brick bricks [64];
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
+    brick = GRRLIB_LoadTexture(brick_png);
     
     int k = 0;
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 6; j++) {
-            bricks[k] = Brick(j * 64 + 30, i * 15 + 50);
-            bricks[k].setTexture(GRRLIB_LoadTexture(brick_png));
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            bricks[k] = Brick(j * 64 + 30, i * 16 + 50);
+            bricks[k].setTexture(brick);
             k++;
         }
     }
@@ -48,7 +51,7 @@ int main(void)
             break;
         }
 
-        for (int i = 0; i < 30; i++) {
+        for (unsigned int i = 0; i < sizeof bricks; i++) {
             bricks[i].draw();
         }                    
 
@@ -57,6 +60,7 @@ int main(void)
     }
 
     end();
+    return 0;
 }
 
 void ini() {
@@ -68,5 +72,5 @@ void ini() {
 void end() {
     GRRLIB_FreeTTF(font);
     GRRLIB_Exit();
-  //  return 0;
+  //  
 }
