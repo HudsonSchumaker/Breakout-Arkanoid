@@ -6,14 +6,14 @@
 
 #include "Brick.h"
 #include "Sprite.h"
-#define GRRLIB_WHITE 0xFFFFFFFF
+#include "Color.h"
 
 void Brick::draw() {
-    GRRLIB_DrawImg(x, y, sprite, 0, 1, 1, GRRLIB_WHITE);
+    GRRLIB_DrawImg(x, y, sprite, 0, 1, 1, Color::getWhite());
 }
 
 void Brick::draw(float d) {
-    GRRLIB_DrawImg(x, y, sprite, d, 1, 1, GRRLIB_WHITE);
+    GRRLIB_DrawImg(x, y, sprite, d, 1, 1, Color::getWhite());
 }
 
 /*
@@ -26,3 +26,4 @@ scaleX	Specifies the x-coordinate scale. -1 could be used for flipping the textu
 scaleY	Specifies the y-coordinate scale. -1 could be used for flipping the texture vertically.
 color	Color in RGBA format.
 */
+
