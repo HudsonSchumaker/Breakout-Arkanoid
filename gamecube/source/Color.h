@@ -20,6 +20,9 @@ public:
     static unsigned long getWhite();
     static unsigned long getBlack();
     static unsigned long getGray();
+    static unsigned long getOrange();
+    static unsigned long getYellow();
+    static unsigned long getPink();
 
 private:
 

@@ -54,3 +54,15 @@ unsigned long Color::getBlack() {
 unsigned long Color::getGray() {
     return createRGBA(128, 128, 128, 255);
 }
+
+unsigned long Color::getOrange() {
+    return createRGBA(255, 200, 0, 255);
+}
+
+unsigned long Color::getYellow() {
+    return createRGBA(255, 255, 0, 255);
+}
+
+unsigned long Color::getPink() {
+    return createRGBA(255, 175, 175, 255);
+}
