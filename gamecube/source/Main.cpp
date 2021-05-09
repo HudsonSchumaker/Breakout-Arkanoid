@@ -11,16 +11,19 @@
 
 #include "Brick.h"
 #include "Sprite.h"
+#include "Color.h"
 #include "font_ttf.h"
 #include "brick_png.h"
 
 #define GRRLIB_BLACK 0x000000FF
 #define GRRLIB_WHITE 0xFFFFFFFF
+#define COLOR 0xFF0000FF
 
 const int screenWidth = 640;
 const int screenHeight = 480;
 void ini();
 void end();
+unsigned long createRGBA(int r, int g, int b, int a);
 
 GRRLIB_ttfFont *font;
 GRRLIB_texImg *brick;
@@ -43,7 +46,7 @@ int main(void)
     }
 
     for (;;) {
-        GRRLIB_FillScreen(GRRLIB_BLACK); 
+        GRRLIB_FillScreen(Color::getBlue()); 
         PAD_ScanPads();
         
         if(PAD_ButtonsDown(0) & PAD_BUTTON_START)
@@ -74,3 +77,5 @@ void end() {
     GRRLIB_Exit();
   //  
 }
+
+
