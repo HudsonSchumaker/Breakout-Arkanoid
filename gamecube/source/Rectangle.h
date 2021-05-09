@@ -1,9 +1,9 @@
-//  Dimension.h
-//  A Rectangle specifies an area in a coordinate space that is enclosed by the Rectangle object's 
-//  upper-left point (x,y) in the coordinate space, its width, and its height.
 //
+//  Dimension.h
+//  SchumakerTeam Lab. 
 //  Hudson Schumaker
 //
+
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
@@ -16,10 +16,7 @@ using namespace std;
 class Rectangle
 {
 private:
-	int x;
-	int y;
-	int w;
-	int h;
+	int x, y, w, h;
 
 public:
 	Rectangle();

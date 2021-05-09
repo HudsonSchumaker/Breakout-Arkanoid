@@ -26,3 +26,7 @@ Sprite::Sprite(int x, int y,  int w , int h) {
 	this->w = w;
 	this->h = h;
 }
+
+Rectangle Sprite::getBounds() {
+	return Rectangle(this->x, this->y, this->w, this->h);
+}

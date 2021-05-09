@@ -7,6 +7,8 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
+#include "Rectangle.h"
+
 class Sprite {
     private:
         int x, y , w, h;
@@ -15,6 +17,7 @@ class Sprite {
 		Sprite();
 		Sprite(int w, int h);
 		Sprite(int x, int y, int w, int h);
+		Rectangle getBounds();
 
 		virtual void draw();
 

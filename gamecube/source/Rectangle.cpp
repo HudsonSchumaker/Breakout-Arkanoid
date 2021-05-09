@@ -1,5 +1,6 @@
-//  Dimension.cpp
 //
+//  Rectangle.cpp
+//  SchumakerTeam Lab.
 //  Hudson Schumaker
 //
 
