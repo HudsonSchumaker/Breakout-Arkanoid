@@ -5,7 +5,6 @@
 //
 
 #include "Sprite.h"
-#include "Rectangle.h"
 
 Sprite::Sprite() {}
 
