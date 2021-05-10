@@ -5,7 +5,6 @@
 //
 
 #include "Brick.h"
-#include "Sprite.h"
 #include "Color.h"
 
 void Brick::draw() {

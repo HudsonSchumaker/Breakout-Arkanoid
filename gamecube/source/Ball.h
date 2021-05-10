@@ -7,7 +7,6 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include <grrlib.h>
 #include "Sprite.h"
 
 class Ball : public Sprite {
