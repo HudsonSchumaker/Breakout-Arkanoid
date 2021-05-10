@@ -1,13 +1,10 @@
 //
-//  Point.h
+//  Point.hpp
 //  SchumakerTam Lab.
 //
 //  Hudson Schumaker
 //
-
-#ifndef POINT_H
-#define POINT_H
-
+ 
 class Point {
 private:
     int x, y;
@@ -26,4 +23,3 @@ public:
     void setY(int y) { this->y = y; };
     int getY() const { return y; };
 };
-#endif /* POINT_H */

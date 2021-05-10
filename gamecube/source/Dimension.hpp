@@ -1,14 +1,9 @@
 //
-//  Dimension.h
-//  hello
+//  Dimension.hpp
+//  SchumakerTeam Lab.
 //
-//  Created by Hudson Luiz Sales Schumaker on 06.05.21.
+//  Hudson Schumaker
 //
-
-#ifndef DIMENSION_H
-#define DIMENSION_H
-
-using namespace std;
 
 class Dimension {
 private:
@@ -27,4 +22,3 @@ public:
 	void setHeight(int h) { this->h = h; };
 	int getHeight() const { return h; };
 };
-#endif /* DIMENSION_H */

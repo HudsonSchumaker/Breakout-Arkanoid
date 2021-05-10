@@ -4,9 +4,8 @@
 // Hudson Schumaker
 //
 
-#include "Paddle.h"
-#include "Sprite.h"
-#include "Color.h"
+#include "Paddle.hpp"
+#include "Color.hpp"
 
 void Paddle::move(int dx) {
     this->x += dx;

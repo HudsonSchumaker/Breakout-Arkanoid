@@ -1,18 +1,13 @@
 //
-//  Dimension.h
+//  Dimension.hpp
 //  SchumakerTeam Lab. 
 //  Hudson Schumaker
 //
 
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
+#include "Point.hpp"
+#include "Dimension.hpp"
 
-#include "Point.h"
-#include "Dimension.h"
-
-using namespace std;
-class Rectangle
-{
+class Rectangle {
 private:
 	int x, y, w, h;
 
@@ -45,6 +40,4 @@ public:
 
 	void setHeight(int h) { this->h = h; };
 	int getHeight() const { return h; };
-
 };
-#endif /* RECTANGLE_H */

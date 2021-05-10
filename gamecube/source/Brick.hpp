@@ -1,14 +1,10 @@
 //
-// Brick.h
+// Brick.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //
 
-#ifndef BRICK_H
-#define BRICK_H
-
-#include <grrlib.h>
-#include "Sprite.h"
+#include "Sprite.hpp"
 
 class Brick : public Sprite {
 public:
@@ -20,4 +16,3 @@ public:
 private:
     
 };
-#endif /* BRICK_H */

@@ -4,11 +4,8 @@
 // Hudson Schumaker
 //
 
-#ifndef SPRITE_H
-#define SPRITE_H
-
 #include <grrlib.h>
-#include "Rectangle.h"
+#include "Rectangle.hpp"
 
 class Sprite {
 protected:
@@ -34,6 +31,11 @@ public:
     	void setWidth(int w) { this->w = w; };
 
 	int getHeight() const { return h; };
+<<<<<<< HEAD:gamecube/source/Sprite.h
    	void setHeight(int h) { this->h = h; };
 };
 #endif /* SPRITE_H */
+=======
+    void setHeight(int h) { this->h = h; };
+};
+>>>>>>> change headers to hpp (cpp default):gamecube/source/Sprite.hpp

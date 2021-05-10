@@ -4,7 +4,7 @@
 //  Hudson Schumaker
 //
 
-#include "Rectangle.h"
+#include "Rectangle.hpp"
 
 Rectangle::Rectangle() {
 	this->x = 0;
