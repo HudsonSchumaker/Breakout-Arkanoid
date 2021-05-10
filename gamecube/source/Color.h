@@ -4,6 +4,9 @@
 // Hudson Schumaker
 //
 
+#ifndef COLOR_H
+#define COLOR_H
+
 class Color {
 public:
     int r, g, b, a;
@@ -24,3 +27,5 @@ public:
 private:
 
 };
+
+#endif /* COLOR_H */

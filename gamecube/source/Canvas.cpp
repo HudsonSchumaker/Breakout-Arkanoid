@@ -3,8 +3,7 @@
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //
-
-#include "Canvas.hpp"
+#include "Canvas.h"
 
 Canvas::Canvas() {
     this->w = 0;

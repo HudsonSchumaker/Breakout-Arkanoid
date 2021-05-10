@@ -4,7 +4,7 @@
 // Hudson Schumaker
 //
 
-#include "Color.hpp"
+#include "Color.h"
 
 Color::Color() {
     this->r = 255;

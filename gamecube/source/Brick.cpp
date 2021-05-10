@@ -4,8 +4,9 @@
 // Hudson Schumaker
 //
 
-#include "Brick.hpp"
-#include "Color.hpp"
+#include "Brick.h"
+#include "Sprite.h"
+#include "Color.h"
 
 void Brick::draw() {
     GRRLIB_DrawImg(x, y, sprite, 0, 1, 1, Color::getWhite());

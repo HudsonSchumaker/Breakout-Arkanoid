@@ -4,7 +4,7 @@
 //  Created by Hudson Luiz Sales Schumaker on 06.05.21.
 //
 
-#include "Dimension.hpp"
+#include "Dimension.h"
 
 Dimension::Dimension() {
 	this->w = 0;

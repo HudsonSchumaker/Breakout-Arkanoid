@@ -1,10 +1,14 @@
 //
-// Paddle.hpp
+// Paddle.h
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //
 
-#include "Sprite.hpp"
+#ifndef PADDLE_H
+#define PADDLE_H
+
+#include <grrlib.h>
+#include "Sprite.h"
 
 class Paddle : public Sprite {
 public:
@@ -18,3 +22,4 @@ public:
 private:
   
 };
+#endif /* PADDLE_H */

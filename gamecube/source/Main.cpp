@@ -4,14 +4,15 @@
 // Hudson Schumaker
 //
 
+#include <gccore.h>
 #include <fat.h>
 #include <grrlib.h>
-#include <gccore.h>
 #include <asndlib.h>
 
-#include "Brick.hpp"
-#include "Paddle.hpp"
-#include "Color.hpp"
+#include "Sprite.h"
+#include "Brick.h"
+#include "Paddle.h"
+#include "Color.h"
 
 #include "font_ttf.h"
 #include "brick_png.h"

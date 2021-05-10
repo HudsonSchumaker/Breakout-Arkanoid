@@ -4,7 +4,8 @@
 // Hudson Schumaker
 //
 
-#include "Sprite.hpp"
+#include "Sprite.h"
+#include "Rectangle.h"
 
 Sprite::Sprite() {}
 

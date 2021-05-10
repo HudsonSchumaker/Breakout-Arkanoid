@@ -5,7 +5,7 @@
 //  Hudson Schumaker
 //
 
-#include "Point.hpp"
+#include "Point.h"
 
 Point::Point() {
     this->x = 0;
