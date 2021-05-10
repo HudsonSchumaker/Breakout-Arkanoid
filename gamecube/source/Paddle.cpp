@@ -5,7 +5,6 @@
 //
 
 #include "Paddle.h"
-#include "Sprite.h"
 #include "Color.h"
 
 void Paddle::move(int dx) {
