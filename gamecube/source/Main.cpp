@@ -38,7 +38,6 @@ int main(void) {
     brick_img = GRRLIB_LoadTexture(brick_png);
     paddle_img = GRRLIB_LoadTexture(paddle_png);
 
-    
     paddle.setTexture(paddle_img);
 
     int k = 0;
