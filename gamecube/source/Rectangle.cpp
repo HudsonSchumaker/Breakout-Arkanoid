@@ -6,47 +6,22 @@
 
 #include "Rectangle.h"
 
-Rectangle::Rectangle() {
-	this->x = 0;
-	this->y = 0;
-	this->w = 0;
-	this->h = 0;
-}
+Rectangle::Rectangle() : x(0), y(0), w(0), h(0) {}
 
-Rectangle::Rectangle(int w, int h) {
-	this->x = 0;
-	this->y = 0;
-	this->w = w;
-	this->h = h;
-}
+Rectangle::Rectangle(int w, int h) 
+	: x(0), y(0), w(w), h(h) {}
 
-Rectangle::Rectangle(int x, int y, int w, int h) {
-	this->x = x;
-	this->y = y;
-	this->w = w;
-	this->h = h;
-}
+Rectangle::Rectangle(int x, int y, int w, int h) 
+	: x(x), y(y), w(w), h(h) {}
 
-Rectangle::Rectangle(Point p) {
-	this->x = p.getX();
-	this->y = p.getY();
-	this->w = 0;
-	this->h = 0;
-}
+Rectangle::Rectangle(Point p)
+	: x(p.getX()), y(p.getY()), w(0), h(0) {}
 
-Rectangle::Rectangle(Dimension d) {
-	this->x = 0;
-	this->y = 0;
-	this->w = d.getWidth();
-	this->h = d.getHeight();
-}
+Rectangle::Rectangle(Dimension d) 
+	: x(0), y(0), w(d.getWidth()), h(d.getHeight()) {}
 
-Rectangle::Rectangle(Point p, Dimension d) {
-	this->x = p.getX();
-	this->y = p.getY();
-	this->w = d.getWidth();
-	this->h = d.getHeight();
-}
+Rectangle::Rectangle(Point p, Dimension d) 
+	: x(p.getX()), y(p.getY()), w(d.getWidth()), h(d.getHeight()) {}
 
 Rectangle Rectangle::getBounds() {
 	return Rectangle(this->x, this->y, this->w, this->h);
