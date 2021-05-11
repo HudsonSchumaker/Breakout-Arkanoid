@@ -9,9 +9,9 @@
 
 class Ball final: public Sprite {
 public:
-    Ball() : Sprite() {};
-    Ball(int x, int y) : Sprite(x, y) {};
-    Ball(int x, int y, int w, int h) : Sprite(x, y, w, h) {};
+    Ball() : Sprite(), dx(1), dy(-1) {};
+    Ball(int x, int y) : Sprite(x, y), dx(1), dy(-1) {};
+    Ball(int x, int y, int w, int h) : Sprite(x, y, w, h), dx(1), dy(-1) {};
     void move();
     void reset(int x, int y);
     void draw() override;

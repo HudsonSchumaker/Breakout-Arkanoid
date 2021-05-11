@@ -70,7 +70,9 @@ int main(void) {
         }
 
         paddle.draw();
+        ball.move();
         ball.draw();
+
 
         //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
         GRRLIB_Render();        
