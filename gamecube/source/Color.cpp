@@ -6,19 +6,8 @@
 
 #include "Color.h"
 
-Color::Color() {
-    this->r = 255;
-    this->g = 255;
-    this->b = 255;
-    this->a = 255;
-}
-
-Color::Color(int r, int g, int b, int a) {
-    this->r = r;
-    this->g = g;
-    this->b = b;
-    this->a = a;
-}
+Color::Color() : r(255), g(255), b(255), a(255) {}
+Color::Color(int r, int g, int b, int a) : r(r), g(g), b(b), a(a) {}
 
 unsigned long Color::createRGBA(int r, int g, int b, int a) {   
     return ((r & 0xff) << 24) 
