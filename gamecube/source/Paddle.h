@@ -15,7 +15,7 @@ public:
     Paddle(int x, int y) : Sprite(x, y) {};
     Paddle(int x, int y, int w, int h) : Sprite(x, y, w, h) {};
     void move(int dx);
-    void draw();
+    void draw() override;
     void draw(float d);
     
 private:
