@@ -29,15 +29,14 @@ GRRLIB_texImg *brick_img;
 GRRLIB_texImg *paddle_img;
 
 Paddle paddle(192, 462);
+Brick bricks [16];
 
 int main(void) {
     ini();
-    Brick bricks [16];
-   
+    
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
     brick_img = GRRLIB_LoadTexture(brick_png);
     paddle_img = GRRLIB_LoadTexture(paddle_png);
-
     paddle.setTexture(paddle_img);
 
     int k = 0;
