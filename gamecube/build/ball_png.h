@@ -6,7 +6,7 @@
 extern const uint8_t ball_png[];
 extern const uint8_t ball_png_end[];
 #if __cplusplus >= 201103L
-static constexpr size_t ball_png_size=583;
+static constexpr size_t ball_png_size=524;
 #else
-static const size_t ball_png_size=583;
+static const size_t ball_png_size=524;
 #endif

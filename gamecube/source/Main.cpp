@@ -4,8 +4,9 @@
 // Hudson Schumaker
 //
 
-#include <gccore.h>
 #include <fat.h>
+#include <gccore.h>
+#include <stdlib.h>
 #include <grrlib.h>
 #include <asndlib.h>
 
@@ -31,12 +32,13 @@ GRRLIB_texImg* brick_img;
 GRRLIB_texImg* paddle_img;
 GRRLIB_texImg* ball_img;
 
-Brick bricks [16];
-Paddle paddle(192, 462);
-Ball ball(50, 50);
 
+Paddle paddle(192, 462);
 int main(void) {
     ini();
+    Brick bricks [16];
+    
+    Ball ball(200, 440);
     
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
     brick_img = GRRLIB_LoadTexture(brick_png);
@@ -59,14 +61,15 @@ int main(void) {
         GRRLIB_FillScreen(Color::getBlack()); 
         PAD_ScanPads();
         
+        
         if (PAD_ButtonsDown(0) & PAD_BUTTON_START) { break; }
         input();
 
         for (unsigned int i = 0; i < sizeof bricks; i++) {
-           // bricks[i].draw();
+           bricks[i].draw();
         }
 
-        //paddle.draw();
+        paddle.draw();
         ball.draw();
 
         //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
