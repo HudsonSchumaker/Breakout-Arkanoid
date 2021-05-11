@@ -8,7 +8,7 @@
 #ifndef DIMENSION_H
 #define DIMENSION_H
 
-class Dimension {
+class Dimension final {
 private:
 	int w, h;
 

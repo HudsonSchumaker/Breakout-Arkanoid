@@ -7,8 +7,7 @@
 #ifndef CANVAS_H
 #define CANVAS_H
 
-class Canvas
-{
+class Canvas {
     private:
         int w, h;
 

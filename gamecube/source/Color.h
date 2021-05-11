@@ -7,7 +7,7 @@
 #ifndef COLOR_H
 #define COLOR_H
 
-class Color {
+class Color final {
 public:
     int r, g, b, a;
     Color();

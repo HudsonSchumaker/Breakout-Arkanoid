@@ -8,7 +8,7 @@
 #ifndef POINT_H
 #define POINT_H
 
-class Point {
+class Point final {
 private:
     int x, y;
     
