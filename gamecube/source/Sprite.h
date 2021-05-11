@@ -17,7 +17,7 @@ protected:
 public:
 	Sprite();
 	Sprite(int x, int y);
-    	Sprite(int x, int y, int w, int h);
+    Sprite(int x, int y, int w, int h);
 	Rectangle getBounds();
 	GRRLIB_texImg *sprite;
 	void setTexture(GRRLIB_texImg *spr) {

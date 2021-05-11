@@ -4,9 +4,7 @@
 // Hudson Schumaker
 //
 
-#ifndef BRICK_H
-#define BRICK_H
-
+#pragma once
 #include "Sprite.h"
 
 class Brick : public Sprite {
@@ -19,4 +17,4 @@ public:
 private:
     
 };
-#endif /* BRICK_H */
+// #endif /* BRICK_H */
