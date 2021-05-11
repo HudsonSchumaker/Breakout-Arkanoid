@@ -12,7 +12,7 @@
 
 class Sprite {
 protected:
-        int x, y, w, h;
+    int x, y, w, h;
 		
 public:
 	Sprite();
@@ -20,6 +20,8 @@ public:
     Sprite(int x, int y, int w, int h);
 	Rectangle getBounds();
 	GRRLIB_texImg *sprite;
+	virtual void draw() = 0;
+	
 	void setTexture(GRRLIB_texImg *spr) {
 		sprite = spr; w = sprite->w; h = sprite->h;
 	};
