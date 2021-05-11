@@ -22,7 +22,7 @@ public:
 	GRRLIB_texImg *sprite;
 	virtual void draw() = 0;
 	
-	void setTexture(GRRLIB_texImg *spr) {
+	void setTexture(GRRLIB_texImg* spr) {
 		sprite = spr; w = sprite->w; h = sprite->h;
 	};
 		

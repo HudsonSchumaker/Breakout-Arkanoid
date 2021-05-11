@@ -9,14 +9,16 @@
 #include <grrlib.h>
 #include <asndlib.h>
 
-#include "Sprite.h"
 #include "Brick.h"
 #include "Paddle.h"
+#include "Ball.h"
 #include "Color.h"
+
 
 #include "font_ttf.h"
 #include "brick_png.h"
 #include "paddle_png.h"
+#include "ball_png.h"
 
 const int screenWidth = 640;
 const int screenHeight = 480;
@@ -24,12 +26,14 @@ void ini();
 void input();
 void end();
 
-GRRLIB_ttfFont *font;
-GRRLIB_texImg *brick_img;
-GRRLIB_texImg *paddle_img;
+GRRLIB_ttfFont* font;
+GRRLIB_texImg* brick_img;
+GRRLIB_texImg* paddle_img;
+GRRLIB_texImg* ball_img;
 
-Paddle paddle(192, 462);
 Brick bricks [16];
+Paddle paddle(192, 462);
+Ball ball(50, 50);
 
 int main(void) {
     ini();
@@ -37,7 +41,10 @@ int main(void) {
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
     brick_img = GRRLIB_LoadTexture(brick_png);
     paddle_img = GRRLIB_LoadTexture(paddle_png);
+    ball_img = GRRLIB_LoadTexture(ball_png);
+    
     paddle.setTexture(paddle_img);
+    ball.setTexture(ball_img);
 
     int k = 0;
     for (int i = 0; i < 4; i++) {
@@ -56,11 +63,11 @@ int main(void) {
         input();
 
         for (unsigned int i = 0; i < sizeof bricks; i++) {
-            bricks[i].draw();
+           // bricks[i].draw();
         }
 
-        paddle.draw();
-        
+        //paddle.draw();
+        ball.draw();
 
         //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
         GRRLIB_Render();        

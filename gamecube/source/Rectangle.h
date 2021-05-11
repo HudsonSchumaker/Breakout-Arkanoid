@@ -11,8 +11,7 @@
 #include "Dimension.h"
 
 using namespace std;
-class Rectangle
-{
+class Rectangle final {
 private:
 	int x, y, w, h;
 

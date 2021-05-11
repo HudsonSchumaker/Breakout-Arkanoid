@@ -9,7 +9,7 @@
 
 #include "Sprite.h"
 
-class Paddle : public Sprite {
+class Paddle final : public Sprite {
 public:
     Paddle() : Sprite() {};
     Paddle(int x, int y) : Sprite(x, y) {};

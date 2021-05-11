@@ -4,15 +4,13 @@
 // Hudson Schumaker
 //
 
-#ifndef BALL_H
-#define BALL_H
-
+#pragma once
 #include "Sprite.h"
 
-class Ball : public Sprite {
+class Ball final: public Sprite {
 public:
     Ball() : Sprite() {};
-    Ball(int w, int h) : Sprite(w, h) {};
+    Ball(int x, int y) : Sprite(x, y) {};
     Ball(int x, int y, int w, int h) : Sprite(x, y, w, h) {};
     void draw() override;
     void draw(float d);
@@ -20,4 +18,3 @@ public:
 private:
 
 };
-#endif /* BALL_H */
