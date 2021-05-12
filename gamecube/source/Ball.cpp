@@ -8,20 +8,14 @@
 #include "Color.h"
 
 void Ball::move() {
-    x += dx;
-    y += dy;
+    if (x == 0) { setDX(1); }
 
-    if (x == 0) {
-        setDX(1);
-    }
+    if (x == 640) { setDX(-1); }
 
-    if (x == 640) {
-        setDX(-1);
-    }
+    if (y == 0) { setDY(1); }
 
-    if (y == 0) {
-        setDY(1);
-    }
+    x += dx * s;
+    y += dy * s;
 }
 
 void Ball::draw() {
