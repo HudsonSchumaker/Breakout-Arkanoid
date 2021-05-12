@@ -18,6 +18,7 @@ public:
     void draw() override;
     void draw(float d);
 
+    void setS(int s) { this->s = s; }; 
     int getDX() const { return dx; };
 	void setDX(int dx) { this->dx = dx; };
     int getDY() const { return dy; };
