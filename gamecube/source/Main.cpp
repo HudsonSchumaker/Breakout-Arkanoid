@@ -32,6 +32,7 @@ GRRLIB_texImg* brick_img;
 GRRLIB_texImg* paddle_img;
 GRRLIB_texImg* ball_img;
 
+int go = 0;
 
 Paddle paddle(192, 462);
 int main(void) {
@@ -39,6 +40,7 @@ int main(void) {
     Brick bricks [16];
     
     Ball ball(200, 440);
+    ball.setS(3);
     
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
     brick_img = GRRLIB_LoadTexture(brick_png);
@@ -61,7 +63,6 @@ int main(void) {
         GRRLIB_FillScreen(Color::getBlack()); 
         PAD_ScanPads();
         
-        
         if (PAD_ButtonsDown(0) & PAD_BUTTON_START) { break; }
         input();
 
@@ -73,10 +74,14 @@ int main(void) {
         ball.move();
         ball.draw();
 
-
         //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
         GRRLIB_Render();        
+
+        if (go == 1) {
+            break;
+        }
     }
+
 
     end();
     return 0;
@@ -104,7 +109,6 @@ void ini() {
 void end() {
     GRRLIB_FreeTTF(font);
     GRRLIB_Exit();
-  //  
 }
 
 
