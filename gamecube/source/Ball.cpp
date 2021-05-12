@@ -14,7 +14,7 @@ void Ball::move() {
     if (x <= 0) { setDX(1); }
     if (x >= 640) { setDX(-1); }
     if (y <= 0) { setDY(1); }
-    if (y >= 480) { }
+    if (y >= 480) {extern go = 1; }
 }
 
 void Ball::draw() {
