@@ -32,7 +32,7 @@ GRRLIB_texImg* brick_img;
 GRRLIB_texImg* paddle_img;
 GRRLIB_texImg* ball_img;
 
-int go = 0;
+extern int go = 0;
 
 Paddle paddle(192, 462);
 int main(void) {
