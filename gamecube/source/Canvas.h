@@ -4,8 +4,7 @@
 // Hudson Schumaker
 //
 
-#ifndef CANVAS_H
-#define CANVAS_H
+#pragma once
 
 class Canvas {
     private:
@@ -26,4 +25,3 @@ class Canvas {
 	    void setHeight(int h) { this->h = h; };
 	    int getHeight() const { return h; };
 };
-#endif /* CANVAS_H */
