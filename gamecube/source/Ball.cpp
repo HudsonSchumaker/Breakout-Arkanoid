@@ -5,7 +5,7 @@
 //
 
 #include "Ball.h"
-#include "Color.h"
+#include "Color.hpp"
 
 void Ball::move() {
     x += dx * s;
