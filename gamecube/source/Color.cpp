@@ -4,7 +4,7 @@
 // Hudson Schumaker
 //
 
-#include "Color.h"
+#include "Color.hpp"
 
 Color::Color() : r(255), g(255), b(255), a(255) {}
 Color::Color(int r, int g, int b, int a) : r(r), g(g), b(b), a(a) {}
