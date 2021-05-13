@@ -15,11 +15,12 @@ protected:
     int x, y, w, h;
 		
 public:
+	GRRLIB_texImg *sprite;
+	
 	Sprite();
 	Sprite(int x, int y);
     Sprite(int x, int y, int w, int h);
 	Rectangle getBounds();
-	GRRLIB_texImg *sprite;
 	virtual void draw() = 0;
 	
 	void setTexture(GRRLIB_texImg* spr) {
