@@ -4,7 +4,7 @@
 // Hudson Schumaker
 //
 
-#include "Ball.h"
+#include "Ball.hpp"
 #include "Color.hpp"
 
 void Ball::move() {
