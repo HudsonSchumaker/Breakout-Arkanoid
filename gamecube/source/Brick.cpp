@@ -4,7 +4,7 @@
 // Hudson Schumaker
 //
 
-#include "Brick.h"
+#include "Brick.hpp"
 #include "Color.hpp"
 
 void Brick::draw() {

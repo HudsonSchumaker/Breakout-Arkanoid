@@ -10,7 +10,7 @@
 #include <grrlib.h>
 #include <asndlib.h>
 
-#include "Brick.h"
+#include "Brick.hpp"
 #include "Paddle.h"
 #include "Ball.hpp"
 #include "Color.hpp"
