@@ -3,6 +3,7 @@
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //
+
 #include "Canvas.hpp"
 
 Canvas::Canvas() : w(0), h(0) {}

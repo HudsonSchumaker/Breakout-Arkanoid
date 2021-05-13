@@ -1,7 +1,6 @@
 //
-//  Dimension.h
-//  SchumakerTeam Lab.
-//
+// Dimension.hpp
+// SchumakerTeam Lab.
 // Hudson Schumaker
 //
 

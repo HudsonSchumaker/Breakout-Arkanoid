@@ -1,5 +1,5 @@
 //
-// Paddle.h
+// Paddle.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //

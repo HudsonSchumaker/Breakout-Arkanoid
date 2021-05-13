@@ -1,7 +1,6 @@
 //
-//  Point.h
+//  Point.hpp
 //  SchumakerTam Lab.
-//
 //  Hudson Schumaker
 //
 

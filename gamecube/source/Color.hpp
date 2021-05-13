@@ -1,5 +1,5 @@
 //
-// Color.h
+// Color.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //
@@ -22,7 +22,4 @@ public:
     static unsigned long getOrange();
     static unsigned long getYellow();
     static unsigned long getPink();
-
-private:
-
 };

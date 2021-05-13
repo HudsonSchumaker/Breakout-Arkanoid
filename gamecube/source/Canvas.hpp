@@ -1,5 +1,5 @@
 // 
-// Canvas.h
+// Canvas.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //
@@ -14,9 +14,10 @@ class Canvas {
         Canvas();
         Canvas(int w, int h);
 
-        virtual void ini()  = 0;
-        virtual void render()  = 0;
-        virtual void input()  = 0; 
+        virtual void input() = 0; 
+        virtual void move() = 0;
+        virtual void collision() = 0;
+        virtual void render() = 0;
         virtual void loop() = 0;
 
         void setWidth(int w) { this->w = w; };
