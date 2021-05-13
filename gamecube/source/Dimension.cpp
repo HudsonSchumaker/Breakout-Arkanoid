@@ -4,7 +4,7 @@
 //  Hudson Schumaker
 //
 
-#include "Dimension.h"
+#include "Dimension.hpp"
 
 Dimension::Dimension() : w(0), h(0) {}
 Dimension::Dimension(int w, int h) : w(w), h(h) {}

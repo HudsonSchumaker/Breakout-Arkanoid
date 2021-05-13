@@ -11,7 +11,7 @@
 #include <asndlib.h>
 
 #include "Brick.hpp"
-#include "Paddle.h"
+#include "Paddle.hpp"
 #include "Ball.hpp"
 #include "Color.hpp"
 
