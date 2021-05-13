@@ -4,8 +4,7 @@
 // Hudson Schumaker
 //
 
-#ifndef PADDLE_H
-#define PADDLE_H
+#pragma once
 
 #include "Sprite.h"
 
@@ -21,4 +20,3 @@ public:
 private:
   
 };
-#endif /* PADDLE_H */

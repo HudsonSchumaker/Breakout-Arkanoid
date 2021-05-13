@@ -5,8 +5,7 @@
 // Hudson Schumaker
 //
 
-#ifndef DIMENSION_H
-#define DIMENSION_H
+#pragma once
 
 class Dimension final {
 private:
@@ -25,4 +24,3 @@ public:
 	void setHeight(int h) { this->h = h; };
 	int getHeight() const { return h; };
 };
-#endif /* DIMENSION_H */

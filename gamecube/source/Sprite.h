@@ -4,8 +4,7 @@
 // Hudson Schumaker
 //
 
-#ifndef SPRITE_H
-#define SPRITE_H
+#pragma once
 
 #include <grrlib.h>
 #include "Rectangle.h"
@@ -39,4 +38,3 @@ public:
 	int getHeight() const { return h; };
    	void setHeight(int h) { this->h = h; };
 };
-#endif /* SPRITE_H */

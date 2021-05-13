@@ -5,8 +5,7 @@
 //  Hudson Schumaker
 //
 
-#ifndef POINT_H
-#define POINT_H
+#pragma once
 
 class Point final {
 private:
@@ -26,4 +25,3 @@ public:
     void setY(int y) { this->y = y; };
     int getY() const { return y; };
 };
-#endif /* POINT_H */

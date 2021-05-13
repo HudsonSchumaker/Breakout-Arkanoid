@@ -4,8 +4,7 @@
 //  Hudson Schumaker
 //
 
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
+#pragma once
 
 #include "Point.h"
 #include "Dimension.h"
@@ -46,4 +45,3 @@ public:
 	int getHeight() const { return h; };
 
 };
-#endif /* RECTANGLE_H */
