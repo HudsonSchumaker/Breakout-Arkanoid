@@ -13,7 +13,7 @@
 #include "Brick.h"
 #include "Paddle.h"
 #include "Ball.h"
-#include "Color.h"
+#include "Color.hpp"
 
 
 #include "font_ttf.h"

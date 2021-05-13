@@ -5,7 +5,7 @@
 //
 
 #include "Paddle.h"
-#include "Color.h"
+#include "Color.hpp"
 
 void Paddle::move(int dx) {
     this->x += dx;
