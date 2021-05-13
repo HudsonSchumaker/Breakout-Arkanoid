@@ -16,7 +16,4 @@ public:
     void move(int dx);
     void draw() override;
     void draw(float d);
-    
-private:
-  
 };

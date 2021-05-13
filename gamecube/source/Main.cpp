@@ -15,7 +15,6 @@
 #include "Ball.hpp"
 #include "Color.hpp"
 
-
 #include "font_ttf.h"
 #include "brick_png.h"
 #include "paddle_png.h"
@@ -33,14 +32,13 @@ GRRLIB_texImg* brick_img;
 GRRLIB_texImg* paddle_img;
 GRRLIB_texImg* ball_img;
 
-extern int go = 0;
-
 Paddle paddle(192, 462);
+Brick bricks [16];    
+Ball ball(200, 440);
+
 int main(void) {
     ini();
-    Brick bricks [16];
     
-    Ball ball(200, 440);
     ball.setS(2);
     
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
@@ -51,12 +49,12 @@ int main(void) {
     paddle.setTexture(paddle_img);
     ball.setTexture(ball_img);
 
-    int k = 0;
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            bricks[k] = Brick(j * brick_img->w + 192, i * brick_img->h + 64);
-            bricks[k].setTexture(brick_img);
-            k++;
+    int b = 0;
+    for (int l = 0; l < 4; l++) {
+        for (int c = 0; c < 4; c++) {
+            bricks[b] = Brick(c * brick_img->w + 192, l * brick_img->h + 64);
+            bricks[b].setTexture(brick_img);
+            b++;
         }
     }
 
@@ -66,23 +64,18 @@ int main(void) {
         
         if (PAD_ButtonsDown(0) & PAD_BUTTON_START) { break; }
         input();
-
-        for (unsigned int i = 0; i < sizeof bricks; i++) {
-           bricks[i].draw();
-        }
-
-        paddle.draw();
         ball.move();
+        collision();
+        
+        for (unsigned int i = 0; i < sizeof bricks; i++) {
+            bricks[i].draw();
+        }
+        paddle.draw();
         ball.draw();
 
         //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
         GRRLIB_Render();        
-
-        if (go == 1) {
-            break;
-        }
     }
-
 
     end();
     return 0;
@@ -102,7 +95,49 @@ void input() {
 }
 
 void collision() {
+    if (ball.getBounds().getY() > screenHeight) {
+        exit(1);
+    }
+    
+    for (int i = 0, j = 0; i < 16; i++) {
+        if (bricks[i].isDestroyed()) {
+            j++;
+        }
+        if (j == 16) {
+            //message = "Victory";
+            exit(0);
+        }
+    }
 
+    if ((ball.getBounds()).intersects(paddle.getBounds())) {
+        int paddleLPos = paddle.getBounds().getX();
+        int ballLPos = ball.getBounds().getX();
+        int first = paddleLPos + 8;
+        int second = paddleLPos + 16;
+        int third = paddleLPos + 24;
+        int fourth = paddleLPos + 32;
+
+        if (ballLPos < first) {
+            ball.setDX(-1);
+            ball.setDY(-1);
+        }
+        if (ballLPos >= first && ballLPos < second) {
+            ball.setDX(-1);
+            ball.setDY(-1 * ball.getDY());
+        }
+        if (ballLPos >= second && ballLPos < third) {
+            ball.setDX(0);
+            ball.setDY(-1);
+        }
+        if (ballLPos >= third && ballLPos < fourth) {
+            ball.setDX(1);
+            ball.setDY(-1 * ball.getDY());
+        }
+        if (ballLPos > fourth) {
+            ball.setDX(1);
+            ball.setDY(-1);clear
+        }
+    }
 }
 
 void ini() {

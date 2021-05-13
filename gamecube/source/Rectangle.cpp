@@ -6,7 +6,8 @@
 
 #include "Rectangle.hpp"
 
-Rectangle::Rectangle() : x(0), y(0), w(0), h(0) {}
+Rectangle::Rectangle() 
+	: x(0), y(0), w(0), h(0) {}
 
 Rectangle::Rectangle(int w, int h) 
 	: x(0), y(0), w(w), h(h) {}
