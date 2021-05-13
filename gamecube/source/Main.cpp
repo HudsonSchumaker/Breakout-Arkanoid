@@ -40,7 +40,7 @@ int main(void) {
     Brick bricks [16];
     
     Ball ball(200, 440);
-    ball.setS(3);
+    ball.setS(2);
     
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
     brick_img = GRRLIB_LoadTexture(brick_png);
