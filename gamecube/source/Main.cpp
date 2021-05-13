@@ -25,6 +25,7 @@ const int screenWidth = 640;
 const int screenHeight = 480;
 void ini();
 void input();
+void collision();
 void end();
 
 GRRLIB_ttfFont* font;
@@ -98,6 +99,10 @@ void input() {
         paddle.move(-4);
         return;
     }
+}
+
+void collision() {
+
 }
 
 void ini() {
