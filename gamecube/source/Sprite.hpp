@@ -7,7 +7,7 @@
 #pragma once
 
 #include <grrlib.h>
-#include "Rectangle.h"
+#include "Rectangle.hpp"
 
 class Sprite {
 protected:

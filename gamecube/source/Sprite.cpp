@@ -4,7 +4,7 @@
 // Hudson Schumaker
 //
 
-#include "Sprite.h"
+#include "Sprite.hpp"
 
 Sprite::Sprite() {}
 Sprite::Sprite(int x, int y) : x(x), y(y) {}

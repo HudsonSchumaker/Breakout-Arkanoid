@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "Point.h"
-#include "Dimension.h"
+#include "Point.hpp"
+#include "Dimension.hpp"
 
 using namespace std;
 class Rectangle final {
