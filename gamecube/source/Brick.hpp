@@ -8,7 +8,7 @@
 #include "Sprite.hpp"
 
 class Brick final: public Sprite {
-public:
+private:
     bool destroyed;
 
 public:
