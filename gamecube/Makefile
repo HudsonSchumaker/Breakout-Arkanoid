@@ -32,9 +32,10 @@ CXXFLAGS	=	$(CFLAGS)
 LDFLAGS = -g $(MACHDEP) -Wl,-Map,$(notdir $@).map -Wl,--section-start,.init=0x81000000
 
 #---------------------------------------------------------------------------------
-# any extra libraries we wish to link with the project
+# any extra libraries we wish to link with the project -logg
 #---------------------------------------------------------------------------------
-LIBS	:=	-lgrrlib -lfreetype -lpngu -lpng -ljpeg -lz -lfat -lasnd -logc -lm -lvorbisidec -logg 
+LIBS	:=	-lgrrlib -lfreetype -lpngu -lpng -ljpeg -lz -lfat -lasnd -logc -lm -lvorbisidec -lmad
+
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
@@ -139,9 +140,9 @@ $(OFILES_SOURCES) : $(HFILES)
 	@echo $(notdir $<)
 	$(bin2o)
 #---------------------------------------------------------------------------------
-# This rule links in binary data with the .ogg extension
+# This rule links in binary data with the .mp3 extension
 #---------------------------------------------------------------------------------
-%.ogg.o	%_ogg.h :	%.ogg
+%.mp3.o	%_mp3.h :	%.mp3
 #---------------------------------------------------------------------------------
 	@echo $(notdir $<)
 	$(bin2o)
