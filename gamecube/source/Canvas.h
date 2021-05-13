@@ -14,10 +14,10 @@ class Canvas {
         Canvas();
         Canvas(int w, int h);
 
-        virtual void ini();
-        virtual void render();
-        virtual void input(); 
-        virtual void loop();
+        virtual void ini()  = 0;
+        virtual void render()  = 0;
+        virtual void input()  = 0; 
+        virtual void loop() = 0;
 
         void setWidth(int w) { this->w = w; };
 	    int getWidth() const { return w; };
