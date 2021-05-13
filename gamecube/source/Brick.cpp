@@ -5,7 +5,7 @@
 //
 
 #include "Brick.h"
-#include "Color.h"
+#include "Color.hpp"
 
 void Brick::draw() {
     GRRLIB_DrawImg(x, y, sprite, 0, 1, 1, Color::getWhite());
