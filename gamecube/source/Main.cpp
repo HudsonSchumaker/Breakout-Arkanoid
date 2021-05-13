@@ -4,11 +4,13 @@
 // Hudson Schumaker
 //
 
+#include <fstream>
 #include <fat.h>
 #include <gccore.h>
 #include <stdlib.h>
 #include <grrlib.h>
 #include <asndlib.h>
+#include <mp3player.h>
 
 #include "Brick.hpp"
 #include "Paddle.hpp"
@@ -22,11 +24,14 @@
 #include "ball_png.h"
 #include "background_png.h"
 
+#include "beep_mp3.h"
+
 const int screenWidth = 640;
 const int screenHeight = 480;
 void ini();
 void input();
 void collision();
+void render();
 void end();
 
 GRRLIB_ttfFont* font;
@@ -36,13 +41,13 @@ GRRLIB_texImg* ball_img;
 GRRLIB_texImg* back_img;
 
 Paddle paddle(192, 462);
-Brick bricks [30];    
+Brick bricks [24];    
 Ball ball(200, 440);
 
 int main(void) {
     ini();
     
-    ball.setS(2);
+    ball.setS(3);
     
     font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
     brick_img = GRRLIB_LoadTexture(brick_png);
@@ -54,9 +59,9 @@ int main(void) {
     ball.setTexture(ball_img);
 
     int b = 0;
-    for (int l = 0; l < 6; l++) {
-        for (int c = 0; c < 5; c++) {
-            bricks[b] = Brick(c * brick_img->w + 256, l * brick_img->h + 64);
+    for (int l = 0; l < 2; l++) {
+        for (int c = 0; c < 12; c++) {
+            bricks[b] = Brick(c * brick_img->w + 128, l * brick_img->h + 64);
             bricks[b].setTexture(brick_img);
             b++;
         }
@@ -71,17 +76,7 @@ int main(void) {
         input();
         ball.move();
         collision();
-        
-        for (unsigned int i = 0; i < sizeof bricks; i++) {
-            if (!bricks[i].isDestroyed()) {
-                bricks[i].draw();
-            }
-        }
-        paddle.draw();
-        ball.draw();
-
-        //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
-        GRRLIB_Render();        
+        render(); 
     }
 
     end();
@@ -155,6 +150,8 @@ void collision() {
                 return;
             }
 
+            bricks[i].setDestroyed(true);
+            
             int ballLeft   = ball.getBounds().getX();
             int ballHeight = ball.getBounds().getHeight();
             int ballWidth  = ball.getBounds().getWidth();
@@ -178,13 +175,28 @@ void collision() {
                 ball.setDY(-1);
             }
 
-            bricks[i].setDestroyed(true);
+            MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
+            //PlayOgg(beep_ogg, beep_ogg_size, 0, OGG_ONE_TIME);
         }
     }
 }
 
+void render() {
+    for (unsigned int i = 0; i < sizeof bricks; i++) {
+        if (!bricks[i].isDestroyed()) {
+            bricks[i].draw();
+        }
+    }
+    paddle.draw();
+    ball.draw();
+
+        //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
+    GRRLIB_Render();       
+}
+
 void ini() {
     ASND_Init();
+    MP3Player_Init();
     PAD_Init();
     GRRLIB_Init();
 }
