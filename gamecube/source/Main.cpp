@@ -12,7 +12,7 @@
 
 #include "Brick.h"
 #include "Paddle.h"
-#include "Ball.h"
+#include "Ball.hpp"
 #include "Color.hpp"
 
 
