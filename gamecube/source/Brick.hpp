@@ -5,7 +5,7 @@
 //
 
 #pragma once
-#include "Sprite.h"
+#include "Sprite.hpp"
 
 class Brick final: public Sprite {
 public:

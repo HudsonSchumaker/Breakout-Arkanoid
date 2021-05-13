@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "Sprite.h"
+#include "Sprite.hpp"
 
 class Paddle final : public Sprite {
 public:
