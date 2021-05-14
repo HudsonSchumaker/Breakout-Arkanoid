@@ -3,14 +3,19 @@
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //
+ 
+#include <math.h>
+#include <stdio.h>
+#include <time.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
-#include <fat.h>
-#include <thread>  
-#include <fstream>
-#include <gccore.h>
-#include <grrlib.h>
-#include <asndlib.h>
-#include <mp3player.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
+#include <switch.h>
+
 
 #include "Brick.hpp"
 #include "Paddle.hpp"
@@ -18,13 +23,8 @@
 #include "Color.hpp"
 #include "Point.hpp"
 
-#include "font_ttf.h"
-#include "brick_png.h"
-#include "paddle_png.h"
-#include "ball_png.h"
-#include "background_png.h"
 
-#include "beep_mp3.h"
+
 
 const int screenWidth = 640;
 const int screenHeight = 480;
@@ -198,10 +198,8 @@ void render() {
 }
 
 void ini() {
-    ASND_Init();
-    MP3Player_Init();
-    PAD_Init();
-    GRRLIB_Init();
+    romfsInit();
+    chdir("romfs:/");
 }
 
 void end() {
