@@ -4,10 +4,10 @@
 // Hudson Schumaker
 //
 
-#include <fstream>
 #include <fat.h>
+#include <thread>  
+#include <fstream>
 #include <gccore.h>
-#include <stdlib.h>
 #include <grrlib.h>
 #include <asndlib.h>
 #include <mp3player.h>
@@ -33,6 +33,7 @@ void input();
 void collision();
 void render();
 void end();
+void play();
 
 GRRLIB_ttfFont* font;
 GRRLIB_texImg* brick_img;
@@ -175,7 +176,9 @@ void collision() {
                 ball.setDY(-1);
             }
 
-            MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
+
+            std::thread first(play);
+            
             //PlayOgg(beep_ogg, beep_ogg_size, 0, OGG_ONE_TIME);
         }
     }
@@ -190,7 +193,7 @@ void render() {
     paddle.draw();
     ball.draw();
 
-        //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
+    //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
     GRRLIB_Render();       
 }
 
@@ -204,4 +207,8 @@ void ini() {
 void end() {
     GRRLIB_FreeTTF(font);
     GRRLIB_Exit();
+}
+
+void play() {
+    MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
 }
