@@ -16,10 +16,11 @@ void Ball::move() {
     if (y <= 0) { setDY(1); }
 }
 
-void Ball::draw() {
-    GRRLIB_DrawImg(x, y, sprite, 0, 1, 1, Color::getWhite());
+void Ball::draw(SDL_Renderer* renderer) {
+    SDL_Rect rect = { x, y, w, h };
+    SDL_RenderCopy(renderer, sprite, NULL, &rect);
 }
 
 void Ball::draw(float d) {
-    GRRLIB_DrawImg(x, y, sprite, d, 1, 1, Color::getWhite());
+    //GRRLIB_DrawImg(x, y, sprite, d, 1, 1, Color::getWhite());
 }
