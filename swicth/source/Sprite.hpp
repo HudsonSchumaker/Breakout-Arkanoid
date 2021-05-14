@@ -23,7 +23,9 @@ public:
 	virtual void draw(SDL_Renderer* renderer) = 0;
 	
 	void setTexture(SDL_Texture* spr) {
-		sprite = spr; w = sprite->w; h = sprite->h;
+		SDL_Point size;
+    	SDL_QueryTexture(spr, NULL, NULL, &size.x, &size.y);
+		sprite = spr; w = size.x; h = size.y;
 	};
 		
 	int getX() const { return x; };

@@ -16,22 +16,32 @@
 #include <SDL2/SDL_ttf.h>
 #include <switch.h>
 
-
 #include "Brick.hpp"
 #include "Paddle.hpp"
 #include "Ball.hpp"
 #include "Color.hpp"
 #include "Point.hpp"
 
+// some switch buttons
+#define JOY_A     0
+#define JOY_B     1
+#define JOY_X     2
+#define JOY_Y     3
+#define JOY_PLUS  10
+#define JOY_MINUS 11
+#define JOY_LEFT  12
+#define JOY_UP    13
+#define JOY_RIGHT 14
+#define JOY_DOWN  15
+
 const int screenWidth = 800;
 const int screenHeight = 450;
 
 void ini();
-void input();
+void input(SDL_Event& e);
 void collision();
 void render();
 void end();
-void play();
 
 SDL_Surface* paddle_surf;
 SDL_Surface* brick_surf;
@@ -43,9 +53,9 @@ SDL_Texture* brickSprite; //= SDL_CreateTextureFromSurface(renderer, lavaSprite_
 SDL_Texture* ballSprite; //= SDL_CreateTextureFromSurface(renderer, platformSprite_surf);
 SDL_Texture* backgroundSprite; // = SDL_CreateTextureFromSurface(renderer, coinSprite_surf);
 
-Paddle paddle(192, 462);
+Paddle paddle(192, 432);
 Brick bricks [24];    
-Ball ball(200, 440);
+Ball ball(200, 425);
 
 SDL_Renderer* renderer;
 
@@ -64,26 +74,23 @@ int main(void) {
     ballSprite = SDL_CreateTextureFromSurface(renderer, ball_surf);
     backgroundSprite = SDL_CreateTextureFromSurface(renderer, background_surf);
 
-    
-    paddle.setTexture(paddle_img);
-    ball.setTexture(ball_img);
+    paddle.setTexture(paddleSprite);
+    ball.setTexture(ballSprite);
 
     int b = 0;
+    SDL_Point size;
+    SDL_QueryTexture(brickSprite, NULL, NULL, &size.x, &size.y);
     for (int l = 0; l < 2; l++) {
         for (int c = 0; c < 12; c++) {
-            bricks[b] = Brick(c * brick_img->w + 128, l * brick_img->h + 64);
-            bricks[b].setTexture(brick_img);
+            bricks[b] = Brick(c * size.x + 128, l * size.y + 64);
+            bricks[b].setTexture(brickSprite);
             b++;
         }
     }
 
     for (;;) {
-        GRRLIB_FillScreen(Color::getBlack()); 
-        GRRLIB_DrawImg(128, 0, back_img, 0, 1, 1, Color::getWhite());
-        PAD_ScanPads();
-        
-        if (PAD_ButtonsDown(0) & PAD_BUTTON_START) { break; }
-        input();
+        SDL_Event e;
+        input(e);
         ball.move();
         collision();
         render(); 
@@ -93,14 +100,29 @@ int main(void) {
     return 0;
 }
 
-void input() {
- 
-    int dx =  PAD_StickX(0);
-    if (dx > 18) {
+void input(SDL_Event& e) {
+    int dx = 0;
+    while(SDL_PollEvent(&e)) {
+        switch(e.type) {
+            case SDL_QUIT: {
+                bool quit = true;
+            } break;
+            case SDL_JOYAXISMOTION: {
+                if(e.jaxis.which == 0) {
+                    if(e.jaxis.axis == 0)
+                        dx = e.jaxis.value;
+                    else if(e.jaxis.axis == 1)
+                        int h = e.jaxis.value;
+                }
+            } break;
+        }
+    }
+
+    if (dx > 0) {
         paddle.move(4);
         return;
     } 
-    if (dx < -18) {
+    if (dx < 0) {
         paddle.move(-4);
         return;
     }
@@ -186,7 +208,6 @@ void collision() {
             }
 
 
-            std::thread first(play);
             
             //PlayOgg(beep_ogg, beep_ogg_size, 0, OGG_ONE_TIME);
         }
@@ -196,14 +217,13 @@ void collision() {
 void render() {
     for (unsigned int i = 0; i < sizeof bricks; i++) {
         if (!bricks[i].isDestroyed()) {
-            bricks[i].draw();
+            bricks[i].draw(renderer);
         }
     }
-    paddle.draw();
-    ball.draw();
-
-    //GRRLIB_PrintfTTF(screenWidth/2 - 146, screenHeight/2, font, "SchumakerTeam", 64, GRRLIB_WHITE);
-    GRRLIB_Render();       
+    paddle.draw(renderer);
+    ball.draw(renderer);
+    //SDL_RenderClear(renderer);
+    SDL_RenderPresent(renderer);     
 }
 
 void ini() {
@@ -229,8 +249,6 @@ void ini() {
     SDL_InitSubSystem(SDL_INIT_JOYSTICK);
     SDL_JoystickEventState(SDL_ENABLE);
     SDL_JoystickOpen(0);
-
-
 }
 
 void end() {
@@ -239,7 +257,4 @@ void end() {
     IMG_Quit();
     SDL_Quit();      
     romfsExit();
-
-void play() {
-   // MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
 }

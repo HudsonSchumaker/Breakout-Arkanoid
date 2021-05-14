@@ -15,7 +15,7 @@ public:
     
     void move();
     void reset(int x, int y);
-    void draw() override;
+    void draw(SDL_Renderer* renderer) override;
     void draw(float d);
 
     void setS(int s) { this->s = s; }; 
