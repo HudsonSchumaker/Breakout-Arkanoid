@@ -23,11 +23,9 @@
 #include "Color.hpp"
 #include "Point.hpp"
 
+const int screenWidth = 800;
+const int screenHeight = 450;
 
-
-
-const int screenWidth = 640;
-const int screenHeight = 480;
 void ini();
 void input();
 void collision();
@@ -35,26 +33,37 @@ void render();
 void end();
 void play();
 
-GRRLIB_ttfFont* font;
-GRRLIB_texImg* brick_img;
-GRRLIB_texImg* paddle_img;
-GRRLIB_texImg* ball_img;
-GRRLIB_texImg* back_img;
+SDL_Surface* paddle_surf;
+SDL_Surface* brick_surf;
+SDL_Surface* ball_surf;
+SDL_Surface* background_surf;
+
+SDL_Texture* paddleSprite;
+SDL_Texture* brickSprite; //= SDL_CreateTextureFromSurface(renderer, lavaSprite_surf);
+SDL_Texture* ballSprite; //= SDL_CreateTextureFromSurface(renderer, platformSprite_surf);
+SDL_Texture* backgroundSprite; // = SDL_CreateTextureFromSurface(renderer, coinSprite_surf);
 
 Paddle paddle(192, 462);
 Brick bricks [24];    
 Ball ball(200, 440);
+
+SDL_Renderer* renderer;
 
 int main(void) {
     ini();
     
     ball.setS(3);
     
-    font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
-    brick_img = GRRLIB_LoadTexture(brick_png);
-    paddle_img = GRRLIB_LoadTexture(paddle_png);
-    ball_img = GRRLIB_LoadTexture(ball_png);
-    back_img = GRRLIB_LoadTexture(background_png);
+    paddle_surf = IMG_Load("resources/paddle.png");
+    brick_surf = IMG_Load("resources/brick.png");
+    ball_surf = IMG_Load("resources/ball.png");
+    background_surf = IMG_Load("resources/backgrund.png");
+
+    paddleSprite = SDL_CreateTextureFromSurface(renderer, paddle_surf);
+    brickSprite = SDL_CreateTextureFromSurface(renderer, brick_surf);
+    ballSprite = SDL_CreateTextureFromSurface(renderer, ball_surf);
+    backgroundSprite = SDL_CreateTextureFromSurface(renderer, background_surf);
+
     
     paddle.setTexture(paddle_img);
     ball.setTexture(ball_img);
@@ -200,13 +209,37 @@ void render() {
 void ini() {
     romfsInit();
     chdir("romfs:/");
+
+    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
+    IMG_Init(IMG_INIT_PNG);
+    TTF_Init();
+    
+    SDL_Window *window = SDL_CreateWindow(
+        "Breakanoide",
+        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+        screenWidth, screenHeight,
+        SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL
+    );
+    
+    renderer = SDL_CreateRenderer(window, -1, 0);
+    
+    Mix_AllocateChannels(5);
+    Mix_OpenAudio(48000, AUDIO_S16, 2, 4096);
+    
+    SDL_InitSubSystem(SDL_INIT_JOYSTICK);
+    SDL_JoystickEventState(SDL_ENABLE);
+    SDL_JoystickOpen(0);
+
+
 }
 
 void end() {
-    GRRLIB_FreeTTF(font);
-    GRRLIB_Exit();
-}
+    Mix_CloseAudio();
+    TTF_Quit();
+    IMG_Quit();
+    SDL_Quit();      
+    romfsExit();
 
 void play() {
-    MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
+   // MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
 }
