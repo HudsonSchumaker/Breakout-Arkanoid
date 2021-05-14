@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <grrlib.h>
+#include <SDL2/SDL.h>
 #include "Rectangle.hpp"
 
 class Sprite {
@@ -14,15 +14,15 @@ protected:
     int x, y, w, h;
 		
 public:
-	GRRLIB_texImg *sprite;
+	SDL_Texture* sprite;
 	
 	Sprite();
 	Sprite(int x, int y);
     Sprite(int x, int y, int w, int h);
 	Rectangle getBounds();
-	virtual void draw() = 0;
+	virtual void draw(SDL_Renderer* renderer) = 0;
 	
-	void setTexture(GRRLIB_texImg* spr) {
+	void setTexture(SDL_Texture* spr) {
 		sprite = spr; w = sprite->w; h = sprite->h;
 	};
 		
