@@ -18,7 +18,7 @@ public:
     Brick(int x, int y, int w, int h, bool d) : Sprite(x, y, w, h), destroyed(d) {};
     
     void draw(SDL_Renderer* renderer) override;
-    void draw(float d);
+    void draw(SDL_Renderer* renderer, double d);
 
     bool isDestroyed() const { return destroyed; };
     void setDestroyed(bool d) { this->destroyed = d; };
