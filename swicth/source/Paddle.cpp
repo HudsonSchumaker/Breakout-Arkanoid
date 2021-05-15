@@ -5,7 +5,6 @@
 //
 
 #include "Paddle.hpp"
-#include "Color.hpp"
 
 void Paddle::move(int dx) {
     this->x += dx;
@@ -16,6 +15,8 @@ void Paddle::draw(SDL_Renderer* renderer) {
     SDL_RenderCopy(renderer, sprite, NULL, &rect);
 }
 
-void Paddle::draw(float d) {
-    //GRRLIB_DrawImg(x, y, sprite, d, 1, 1, Color::getWhite());
+void Paddle::draw(SDL_Renderer* renderer, double d) {
+    SDL_Rect rect = { x, y, w, h };
+    SDL_RendererFlip flip = SDL_FLIP_NONE;
+    SDL_RenderCopyEx(renderer, sprite, NULL, &rect, d, NULL, flip);
 }

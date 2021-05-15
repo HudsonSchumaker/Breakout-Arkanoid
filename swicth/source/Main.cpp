@@ -214,7 +214,7 @@ void render() {
     SDL_RenderClear(renderer);
     for (unsigned int i = 0; i < sizeof bricks; i++) {
         if (!bricks[i].isDestroyed()) {
-            bricks[i].draw(renderer);
+            bricks[i].draw(renderer, 45.0);
         }
     }
     paddle.draw(renderer);
