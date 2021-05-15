@@ -21,6 +21,8 @@ void Ball::draw(SDL_Renderer* renderer) {
     SDL_RenderCopy(renderer, sprite, NULL, &rect);
 }
 
-void Ball::draw(double d) {
-    //GRRLIB_DrawImg(x, y, sprite, d, 1, 1, Color::getWhite());
+void Ball::draw(SDL_Renderer* renderer, double d) {
+    SDL_Rect rect = { x, y, w, h };
+    SDL_RendererFlip flip = SDL_FLIP_NONE;
+    SDL_RenderCopyEx(renderer, sprite, NULL, &rect, d, NULL, flip);
 }
