@@ -53,6 +53,8 @@ SDL_Texture* brickSprite; //= SDL_CreateTextureFromSurface(renderer, lavaSprite_
 SDL_Texture* ballSprite; //= SDL_CreateTextureFromSurface(renderer, platformSprite_surf);
 SDL_Texture* backgroundSprite; // = SDL_CreateTextureFromSurface(renderer, coinSprite_surf);
 
+Mix_Chunk* fxLaunch;
+
 Paddle paddle(192, 432);
 Brick bricks [24];    
 Ball ball(200, 425);
@@ -69,10 +71,13 @@ int main(void) {
     ball_surf = IMG_Load("resources/ball.png");
     background_surf = IMG_Load("resources/backgrund.png");
 
+    fxLaunch = Mix_LoadWAV("resources/beep.wav"); 
+
     paddleSprite = SDL_CreateTextureFromSurface(renderer, paddle_surf);
     brickSprite = SDL_CreateTextureFromSurface(renderer, brick_surf);
     ballSprite = SDL_CreateTextureFromSurface(renderer, ball_surf);
     backgroundSprite = SDL_CreateTextureFromSurface(renderer, background_surf);
+    
 
     paddle.setTexture(paddleSprite);
     ball.setTexture(ballSprite);
@@ -202,8 +207,7 @@ void collision() {
                 ball.setDY(-1);
             }
 
-
-            
+            Mix_PlayChannel(-1, fxLaunch, 0);
             //PlayOgg(beep_ogg, beep_ogg_size, 0, OGG_ONE_TIME);
         }
     }
