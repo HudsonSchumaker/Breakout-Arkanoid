@@ -9,6 +9,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#include <thread>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -42,6 +43,7 @@ void input(SDL_Event& e);
 void collision();
 void render();
 void end();
+void play();
 
 SDL_Surface* paddle_surf;
 SDL_Surface* brick_surf;
@@ -207,7 +209,7 @@ void collision() {
                 ball.setDY(-1);
             }
 
-            Mix_PlayChannel(-1, fxLaunch, 0);
+            std::thread(play);
             //PlayOgg(beep_ogg, beep_ogg_size, 0, OGG_ONE_TIME);
         }
     }
@@ -258,4 +260,8 @@ void end() {
     IMG_Quit();
     SDL_Quit();      
     romfsExit();
+}
+
+void play() {
+    Mix_PlayChannel(-1, fxLaunch, 0);
 }
