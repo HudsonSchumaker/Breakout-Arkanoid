@@ -62,7 +62,7 @@ SDL_Renderer* renderer;
 int main(void) {
     ini();
     
-    ball.setS(3);
+    ball.setS(1);
     
     paddle_surf = IMG_Load("resources/paddle.png");
     brick_surf = IMG_Load("resources/brick.png");
@@ -108,12 +108,7 @@ void input(SDL_Event& e) {
                 bool quit = true;
             } break;
             case SDL_JOYAXISMOTION: {
-                if(e.jaxis.which == 0) {
-                    if(e.jaxis.axis == 0)
-                        dx = e.jaxis.value;
-                    else if(e.jaxis.axis == 1)
-                        int h = e.jaxis.value;
-                }
+                dx = e.jaxis.value;
             } break;
         }
     }
@@ -215,6 +210,8 @@ void collision() {
 }
 
 void render() {
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
     for (unsigned int i = 0; i < sizeof bricks; i++) {
         if (!bricks[i].isDestroyed()) {
             bricks[i].draw(renderer);
