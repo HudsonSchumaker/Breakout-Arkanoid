@@ -31,7 +31,16 @@ void Level1::loop() {
 }
 
 void Level1::input() {
-
+    PAD_ScanPads();
+    int dx =  PAD_StickX(0);
+    if (dx > 18) {
+        paddle.move(4);
+        return;
+    } 
+    if (dx < -18) {
+        paddle.move(-4);
+        return;
+    }
 }
 
 void Level1::move() {
