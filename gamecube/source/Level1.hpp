@@ -5,7 +5,7 @@
 //
 
 #pragma once
-#include <grrlib.h>
+
 #include "Canvas.hpp"
 #include "Brick.hpp"
 #include "Ball.hpp"
