@@ -19,6 +19,8 @@ class Canvas {
         virtual void move() = 0;
         virtual void collision() = 0;
         virtual void render() = 0;
+        virtual void load() = 0;
+        virtual void unload() = 0;
         
         void setWidth(int w) { this->w = w; };
 	    int getWidth() const { return w; };
