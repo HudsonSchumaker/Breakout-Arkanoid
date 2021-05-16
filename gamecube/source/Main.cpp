@@ -36,10 +36,6 @@ void render();
 void end();
 void play();
 
-
-
-
-
 int main(void) {
     ini();
     
@@ -50,8 +46,7 @@ int main(void) {
 }
 
 void input() {
- 
-  
+
 }
 
 void collision() {
