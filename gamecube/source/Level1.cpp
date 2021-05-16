@@ -14,6 +14,7 @@
 
 Level1::Level1() {
     load();
+    loop();
 }
 
 Level1::~Level1() {
@@ -51,8 +52,8 @@ void Level1::render() {
         }
     }
 
-    ball.draw();
     paddle.draw();
+    ball.draw();
     
     GRRLIB_Render();           
 }
@@ -73,9 +74,11 @@ void Level1::load() {
     }
 
     paddle = Paddle(192, 462);
-    ball.setS(3);
+    paddle.setTexture(paddle_img);
 
     ball = Ball(200, 440);
+    ball.setTexture(ball_img);
+    ball.setS(3);
 }
 
 void Level1::unload() {
