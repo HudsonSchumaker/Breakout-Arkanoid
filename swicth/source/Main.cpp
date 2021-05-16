@@ -80,7 +80,6 @@ int main(void) {
     ballSprite = SDL_CreateTextureFromSurface(renderer, ball_surf);
     backgroundSprite = SDL_CreateTextureFromSurface(renderer, background_surf);
     
-
     paddle.setTexture(paddleSprite);
     ball.setTexture(ballSprite);
 
