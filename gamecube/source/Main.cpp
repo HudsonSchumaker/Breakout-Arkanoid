@@ -175,11 +175,8 @@ void collision() {
             else if (bricks[i].getBounds().contains(pointBottom)) {
                 ball.setDY(-1);
             }
-
-
-            std::thread first(play);
             
-            //PlayOgg(beep_ogg, beep_ogg_size, 0, OGG_ONE_TIME);
+            play();
         }
     }
 }
