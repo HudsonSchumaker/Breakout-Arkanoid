@@ -5,7 +5,6 @@
 //
 
 #pragma once
-
 #include "Sprite.hpp"
 
 class Paddle final : public Sprite {
