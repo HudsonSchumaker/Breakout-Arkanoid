@@ -19,9 +19,9 @@ public:
     GRRLIB_texImg* ball_img;
     GRRLIB_texImg* back_img;
 
-    Paddle paddle(192, 462);
-    Brick bricks [24];    
-    Ball ball(200, 440);
+    Paddle paddle;
+    Brick bricks[24];    
+    Ball ball;
 
     Level1();
     ~Level1();
