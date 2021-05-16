@@ -5,8 +5,11 @@
 //
 
 #pragma once
-#include "Canvas.hpp"
 #include <grrlib.h>
+#include "Canvas.hpp"
+#include "Brick.hpp"
+#include "Ball.hpp"
+#include "Paddle.hpp"
 
 class Level1 final : public Canvas {
 public:
@@ -16,13 +19,17 @@ public:
     GRRLIB_texImg* ball_img;
     GRRLIB_texImg* back_img;
 
+    Paddle paddle(192, 462);
+    Brick bricks [24];    
+    Ball ball(200, 440);
+
     Level1();
     ~Level1();
 
     void loop() override;
     void input() override; 
     void move() override;
-    void collision() override;4
+    void collision() override;
     void render() override;
     void load() override;
     void unload() override;
