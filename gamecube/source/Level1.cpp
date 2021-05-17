@@ -24,24 +24,27 @@ Level1::~Level1() {
     unload();
 }
 
-void Level1::loop() {
-    while(!levelOver) {
+bool Level1::loop() {
+
+    while(!levelOver && !levelWon) {
         input(); 
         move();
         collision();
         render(); 
     }
+
+    return levelWon;
 }
 
 void Level1::input() {
     PAD_ScanPads();
     int dx = PAD_StickX(0);
     if (dx > 18) {
-        paddle.move(4);
+        paddle.move(5);
         return;
     } 
     if (dx < -18) {
-        paddle.move(-4);
+        paddle.move(-5);
         return;
     }
 }
@@ -51,17 +54,18 @@ void Level1::move() {
 }
 
 void Level1::collision() {
+    int j = 0;
     if (ball.getBounds().getY() > screenHeight) {
         levelOver = true;
     }
 
-    for (unsigned int i = 0, j = 0; i < sizeof bricks; i++) {
+    for (int i = 0; i < NUMBER_BRICK; i++) {
         if (bricks[i].isDestroyed()) {
             j++;
         }
     }
 
-    for (unsigned int i = 0; i < 24; i++) {
+    for (int i = 0; i < NUMBER_BRICK; i++) {
         if ((ball.getBounds()).intersects(bricks[i].getBounds())) {
 
             if(bricks[i].isDestroyed()) {
@@ -125,13 +129,17 @@ void Level1::collision() {
             ball.setDY(-1);
         }
     }
+
+    if (j > 23) {
+        levelWon = true;
+    }
 }
 
 void Level1::render() {
     GRRLIB_FillScreen(Color::getBlack()); 
     GRRLIB_DrawImg(128, 0, back_img, 0, 1, 1, Color::getWhite());
 
-    for (unsigned int i = 0; i < sizeof bricks; i++) {
+    for (int i = 0; i < NUMBER_BRICK; i++) {
         if (!bricks[i].isDestroyed()) {
             bricks[i].draw();
         }
@@ -162,9 +170,8 @@ void Level1::load() {
     paddle.setTexture(paddle_img);
 
     ball = Ball(200, 440);
-    ball.setS(3);
+    ball.setS(4);
     ball.setTexture(ball_img);
-   
 }
 
 void Level1::unload() {
