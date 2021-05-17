@@ -10,8 +10,8 @@
 #include <mp3player.h>
 
 #include "ball_png.h"
-#include "brick_png.h"
 #include "paddle_png.h"
+#include "red_brick_png.h"
 #include "background_png.h"
 #include "beep_mp3.h"
 
@@ -64,7 +64,8 @@ void Level1::collision() {
         if (j > 23) {
             levelWon = true;
         }
-    }    
+    }   
+
     for (int i = 0; i < NUMBER_BRICK; i++) {
         if ((ball.getBounds()).intersects(bricks[i].getBounds())) {
             if(bricks[i].isDestroyed()) {
@@ -147,7 +148,7 @@ void Level1::render() {
 }
 
 void Level1::load() {
-    brick_img = GRRLIB_LoadTexture(brick_png);
+    brick_img = GRRLIB_LoadTexture(red_brick_png);
     paddle_img = GRRLIB_LoadTexture(paddle_png);
     ball_img = GRRLIB_LoadTexture(ball_png);
     back_img = GRRLIB_LoadTexture(background_png);
