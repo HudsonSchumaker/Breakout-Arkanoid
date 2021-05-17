@@ -17,7 +17,7 @@ class Canvas {
         Canvas();
         Canvas(int w, int h);
 
-        virtual void loop() = 0;
+        virtual bool loop() = 0;
         virtual void input() = 0; 
         virtual void move() = 0;
         virtual void collision() = 0;
