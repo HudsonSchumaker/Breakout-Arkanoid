@@ -45,17 +45,6 @@ int main(void) {
     return 0;
 }
 
-void input() {
-
-}
-
-void collision() {
-    
-}
-
-void render() {
- 
-}
 
 void ini() {
     ASND_Init();

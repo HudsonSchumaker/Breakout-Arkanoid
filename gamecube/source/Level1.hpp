@@ -33,4 +33,7 @@ public:
     void render() override;
     void load() override;
     void unload() override;
+
+private:
+    bool levelOver = false;
 };
