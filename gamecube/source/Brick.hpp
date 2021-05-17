@@ -12,7 +12,7 @@ private:
     bool destroyed;
 
 public:
-    Brick() : Sprite(), destroyed(false) {};
+    Brick() : Sprite(0, 0), destroyed(false) {};
     Brick(int x, int y) : Sprite(x, y), destroyed(false) {};
     Brick(int x, int y, int w, int h) : Sprite(x, y, w, h), destroyed(false) {};
     Brick(int x, int y, int w, int h, bool d) : Sprite(x, y, w, h), destroyed(d) {};
