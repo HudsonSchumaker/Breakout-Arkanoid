@@ -25,14 +25,12 @@ Level1::~Level1() {
 }
 
 bool Level1::loop() {
-
     while(!levelOver && !levelWon) {
         input(); 
         move();
         collision();
         render(); 
     }
-
     return levelWon;
 }
 
@@ -54,20 +52,21 @@ void Level1::move() {
 }
 
 void Level1::collision() {
-    int j = 0;
+    
     if (ball.getBounds().getY() > screenHeight) {
         levelOver = true;
     }
 
-    for (int i = 0; i < NUMBER_BRICK; i++) {
+    for (int i = 0, j = 0; i < NUMBER_BRICK; i++) {
         if (bricks[i].isDestroyed()) {
             j++;
         }
-    }
-
+        if (j > 23) {
+            levelWon = true;
+        }
+    }    
     for (int i = 0; i < NUMBER_BRICK; i++) {
         if ((ball.getBounds()).intersects(bricks[i].getBounds())) {
-
             if(bricks[i].isDestroyed()) {
                 return;
             }
@@ -128,11 +127,7 @@ void Level1::collision() {
             ball.setDX(1);
             ball.setDY(-1);
         }
-    }
-
-    if (j > 23) {
-        levelWon = true;
-    }
+    }   
 }
 
 void Level1::render() {
