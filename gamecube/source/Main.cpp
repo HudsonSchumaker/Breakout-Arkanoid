@@ -11,6 +11,7 @@
 #include <mp3player.h>
 
 #include "Level1.hpp"
+#include "Level2.hpp"
 
 void ini();
 void end();
@@ -19,6 +20,7 @@ int main(void) {
     ini();
     
     Level1* lv1 = new Level1();
+    Level2* lv2 = new Level2();
 
     end();
     return 0;
