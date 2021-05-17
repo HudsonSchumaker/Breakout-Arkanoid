@@ -11,6 +11,9 @@ class Canvas {
         int w, h;
 
     public:
+        const int screenWidth = 640;
+        const int screenHeight = 480;
+        
         Canvas();
         Canvas(int w, int h);
 
