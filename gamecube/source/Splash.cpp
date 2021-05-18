@@ -24,7 +24,7 @@ void Splash::load() {
 void Splash::loop() {
     while (splashTimer < 120) {
         GRRLIB_FillScreen(Color::getWhite()); 
-        GRRLIB_DrawImg(128, 240, logo, 0, 1, 1, Color::getWhite());
+        GRRLIB_DrawImg(100, 180, logo, 0, 1, 1, Color::getWhite());
         GRRLIB_Render();
         splashTimer++;
     }
