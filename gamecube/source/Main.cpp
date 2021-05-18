@@ -10,6 +10,7 @@
 #include <asndlib.h>
 #include <mp3player.h>
 
+#include "Splash.hpp"
 #include "Level1.hpp"
 #include "Level2.hpp"
 
@@ -19,7 +20,11 @@ void end();
 int main(void) {
     ini();
     
+    Splash* splash = new Splash();
+
     Level1* lv1 = new Level1();
+    delete splash;
+
     while(!lv1->loop()) {
         delete lv1;
         lv1 = new Level1();
