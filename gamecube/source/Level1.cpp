@@ -17,7 +17,6 @@
 
 Level1::Level1() {
     load();
-    loop();
 }
 
 Level1::~Level1() {
@@ -133,17 +132,21 @@ void Level1::collision() {
 
 void Level1::render() {
     GRRLIB_FillScreen(Color::getBlack()); 
-    GRRLIB_DrawImg(128, 0, back_img, 0, 1, 1, Color::getWhite());
+    //GRRLIB_DrawImg(128, 0, back_img, 0, 1, 1, Color::getWhite());
 
     for (int i = 0; i < NUMBER_BRICK; i++) {
         if (!bricks[i].isDestroyed()) {
             bricks[i].draw();
+            GRRLIB_Rectangle( bricks[i].getX(),  bricks[i].getY(),  bricks[i].getWidth(),  bricks[i].getHeight(),  Color::getWhite(), false);
         }
     }
 
     paddle.draw();
     ball.draw();
 
+
+    GRRLIB_Rectangle(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight(),  Color::getWhite(), false);
+		
     GRRLIB_Render();           
 }
 
@@ -166,7 +169,7 @@ void Level1::load() {
     paddle.setTexture(paddle_img);
 
     ball = Ball(200, 440);
-    ball.setS(4);
+    ball.setS(1);
     ball.setTexture(ball_img);
 }
 
