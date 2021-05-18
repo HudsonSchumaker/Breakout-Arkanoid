@@ -20,6 +20,11 @@ int main(void) {
     ini();
     
     Level1* lv1 = new Level1();
+    while(!lv1->loop()) {
+        delete lv1;
+        lv1 = new Level1();
+    }
+    delete lv1;
     Level2* lv2 = new Level2();
 
     end();
