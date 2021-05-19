@@ -1,7 +1,8 @@
 //
-//  Dimension.cpp
-//  SchumakerTeam Lab.
-//  Hudson Schumaker
+// Switch
+// Dimension.cpp
+// SchumakerTeam Lab.
+// Hudson Schumaker
 //
 
 #include "Dimension.hpp"
