@@ -137,15 +137,15 @@ void Level1::render() {
     for (int i = 0; i < NUMBER_BRICK; i++) {
         if (!bricks[i].isDestroyed()) {
             bricks[i].draw();
-            GRRLIB_Rectangle( bricks[i].getX(),  bricks[i].getY(),  bricks[i].getWidth(),  bricks[i].getHeight(),  Color::getWhite(), false);
+            // Draw bricks colliders
+            // GRRLIB_Rectangle(bricks[i].getX(),  bricks[i].getY(),  bricks[i].getWidth(),  bricks[i].getHeight(),  Color::getWhite(), false);
         }
     }
 
     paddle.draw();
     ball.draw();
-
-
-    GRRLIB_Rectangle(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight(),  Color::getWhite(), false);
+    // Draw ball collider
+    // GRRLIB_Rectangle(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight(),  Color::getWhite(), false);
 		
     GRRLIB_Render();           
 }
