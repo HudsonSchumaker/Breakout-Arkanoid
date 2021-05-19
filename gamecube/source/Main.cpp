@@ -23,15 +23,27 @@ int main(void) {
     
     Splash* splash = new Splash();
 
-    Level3* lv1 = new Level3();
+    Level1* lv1 = new Level1();
     delete splash;
 
     while(!lv1->loop()) {
         delete lv1;
-        lv1 = new Level3();
+        lv1 = new Level1();
     }
     delete lv1;
+    
     Level2* lv2 = new Level2();
+    while(!lv2->loop()) {
+        delete lv2;
+        lv2 = new Level2();
+    }
+    delete lv2;
+
+    Level3* lv3 = new Level3();
+    while(!lv3->loop()) {
+        delete lv3;
+        lv3 = new Level3();
+    }
 
     end();
     return 0;
