@@ -13,6 +13,7 @@
 #include "Splash.hpp"
 #include "Level1.hpp"
 #include "Level2.hpp"
+#include "Level3.hpp"
 
 void ini();
 void end();
@@ -22,12 +23,12 @@ int main(void) {
     
     Splash* splash = new Splash();
 
-    Level1* lv1 = new Level1();
+    Level3* lv1 = new Level3();
     delete splash;
 
     while(!lv1->loop()) {
         delete lv1;
-        lv1 = new Level1();
+        lv1 = new Level3();
     }
     delete lv1;
     Level2* lv2 = new Level2();
