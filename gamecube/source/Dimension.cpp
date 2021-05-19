@@ -1,7 +1,8 @@
 //
-//  Dimension.cpp
-//  SchumakerTeam Lab.
-//  Hudson Schumaker
+// NGC
+// Dimension.cpp
+// SchumakerTeam Lab.
+// Hudson Schumaker
 //
 
 #include "Dimension.hpp"

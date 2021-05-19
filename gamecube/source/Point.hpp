@@ -1,7 +1,8 @@
 //
-//  Point.hpp
-//  SchumakerTam Lab.
-//  Hudson Schumaker
+// NGC
+// Point.hpp
+// SchumakerTam Lab.
+// Hudson Schumaker
 //
 
 #pragma once

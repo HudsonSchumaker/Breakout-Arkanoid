@@ -1,4 +1,5 @@
 //
+// NGC
 // Ball.cpp
 // SchumakerTeam Lab.
 // Hudson Schumaker

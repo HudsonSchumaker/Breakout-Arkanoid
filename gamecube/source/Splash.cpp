@@ -1,4 +1,5 @@
 //
+// NGC
 // Splash.cpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
