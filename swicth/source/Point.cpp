@@ -1,7 +1,8 @@
 //
-//  Point.cpp
-//  SchumakerTeam Lab.
-//  Hudson Schumaker
+// Switch
+// Point.cpp
+// SchumakerTeam Lab.
+// Hudson Schumaker
 //
 
 #include "Point.hpp"
