@@ -1,4 +1,5 @@
 //
+// NGC
 // Paddle.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker

@@ -1,7 +1,8 @@
 //
-//  Dimension.hpp
-//  SchumakerTeam Lab. 
-//  Hudson Schumaker
+// NGC
+// Dimension.hpp
+// SchumakerTeam Lab. 
+// Hudson Schumaker
 //
 
 #pragma once
