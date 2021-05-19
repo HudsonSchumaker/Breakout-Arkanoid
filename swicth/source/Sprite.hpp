@@ -1,4 +1,5 @@
 // 
+// Switch
 // Sprite.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
