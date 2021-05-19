@@ -1,7 +1,8 @@
 //
-//  Dimension.hpp
-//  SchumakerTeam Lab. 
-//  Hudson Schumaker
+// Switch
+// Dimension.hpp
+// SchumakerTeam Lab. 
+// Hudson Schumaker
 //
 
 #pragma once
@@ -9,7 +10,6 @@
 #include "Point.hpp"
 #include "Dimension.hpp"
 
-using namespace std;
 class Rectangle final {
 private:
 	int x, y, w, h;

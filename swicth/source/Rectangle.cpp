@@ -1,7 +1,8 @@
 //
-//  Rectangle.cpp
-//  SchumakerTeam Lab.
-//  Hudson Schumaker
+// Switch
+// Rectangle.cpp
+// SchumakerTeam Lab.
+// Hudson Schumaker
 //
 
 #include "Rectangle.hpp"
