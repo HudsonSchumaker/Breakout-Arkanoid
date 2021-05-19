@@ -10,7 +10,6 @@
 #include <time.h>
 #include <unistd.h>
 #include <sys/stat.h>
-#include <thread>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -209,7 +208,7 @@ void collision() {
                 ball.setDY(-1);
             }
 
-            std::thread(play);
+            //std::thread(play);
             //PlayOgg(beep_ogg, beep_ogg_size, 0, OGG_ONE_TIME);
         }
     }

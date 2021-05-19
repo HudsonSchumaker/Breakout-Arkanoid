@@ -7,6 +7,9 @@
 
 #pragma once
 
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+
 #include "Canvas.hpp"
 #include "Brick.hpp"
 #include "Ball.hpp"
@@ -31,7 +34,7 @@ class Level1 final : public Canvas {
         SDL_Texture* ballSprite;       //= SDL_CreateTextureFromSurface(renderer, platformSprite_surf);
         SDL_Texture* backgroundSprite; //= SDL_CreateTextureFromSurface(renderer, coinSprite_surf);
 
-        Level1();
+        Level1() : Canvas() {};
         Level1(SDL_Renderer* renderer);
         ~Level1();
 
@@ -46,4 +49,4 @@ class Level1 final : public Canvas {
     private:
         bool levelOver = false;
         bool levelWon = false;
-}
+};

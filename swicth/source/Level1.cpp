@@ -58,7 +58,7 @@ void Level1::collision() {
             }
 
             bricks[i].setDestroyed(true);
-            MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
+            //MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
 
             int ballLeft   = ball.getBounds().getX();
             int ballHeight = ball.getBounds().getHeight();
@@ -119,16 +119,15 @@ void Level1::collision() {
 void Level1::render() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
-
     for (int i = 0; i < NUMBER_BRICK; i++) {
         if (!bricks[i].isDestroyed()) {
-            bricks[i].draw();
-          
+            bricks[i].draw(renderer);
         }
     }
-
-    paddle.draw();
-    ball.draw();
+    paddle.draw(renderer);
+    ball.draw(renderer);
+    //SDL_RenderClear(renderer);
+    SDL_RenderPresent(renderer);     
 }
 
 void Level1::load() {
@@ -162,13 +161,13 @@ void Level1::load() {
 }
 
 void Level1::unload() {
-    SDL_DestroyTexture(paddle_surf);
-    SDL_DestroyTexture(brick_surf);
-    SDL_DestroyTexture(ball_surf);
-    SDL_DestroyTexture(background_surf);
+    SDL_DestroyTexture(paddleSprite);
+    SDL_DestroyTexture(brickSprite);
+    SDL_DestroyTexture(ballSprite);
+    SDL_DestroyTexture(backgroundSprite);
     
-    SDL_FreeSurface(paddleSprite);
-    SDL_FreeSurface(brickSprite);
-    SDL_FreeSurface(ballSprite);
-    SDL_FreeSurface(backgroundSprite);
+    SDL_FreeSurface(paddle_surf);
+    SDL_FreeSurface(brick_surf);
+    SDL_FreeSurface(ball_surf);
+    SDL_FreeSurface(background_surf);
 }
