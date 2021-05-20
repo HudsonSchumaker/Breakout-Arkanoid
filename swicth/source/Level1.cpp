@@ -9,6 +9,9 @@
 #include "Color.hpp"
 #include "Point.hpp"
 
+#include <future>
+#include <iostream>
+
 Level1::Level1(SDL_Renderer* renderer) {
     this->renderer = renderer;
     load();
@@ -20,7 +23,8 @@ Level1::~Level1() {
 
 bool Level1::loop() {
     while(!levelOver && !levelWon) {
-        input(); 
+        SDL_Event e;
+        input(e); 
         move();
         collision();
         render(); 
@@ -28,8 +32,27 @@ bool Level1::loop() {
     return levelWon;
 }
 
-void Level1::input() {
-    
+void Level1::input(SDL_Event& e) {
+    int dx = 0;
+    while(SDL_PollEvent(&e)) {
+        switch(e.type) {
+            case SDL_QUIT: {
+                bool quit = true;
+            } break;
+            case SDL_JOYAXISMOTION: {
+                dx = e.jaxis.value;
+            } break;
+        }
+    }
+
+    if (dx > 0) {
+        paddle.move(4);
+        return;
+    } 
+    if (dx < 0) {
+        paddle.move(-4);
+        return;
+    }
 }
 
 void Level1::move() {
@@ -152,11 +175,11 @@ void Level1::load() {
         }
     }
 
-    paddle = Paddle(192, 462);
+    paddle = Paddle(192, 438);
     paddle.setTexture(paddleSprite);
 
-    ball = Ball(200, 440);
-    ball.setS(4);
+    ball = Ball(200, 430);
+    ball.setS(1);
     ball.setTexture(ballSprite);
 }
 

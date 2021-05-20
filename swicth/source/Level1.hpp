@@ -7,7 +7,6 @@
 
 #pragma once
 
-#include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
 #include "Canvas.hpp"
@@ -39,7 +38,7 @@ class Level1 final : public Canvas {
         ~Level1();
 
         bool loop() override;
-        void input() override; 
+        void input(SDL_Event& e) override; 
         void move() override;
         void collision() override;
         void render() override;
