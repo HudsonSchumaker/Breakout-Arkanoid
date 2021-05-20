@@ -16,6 +16,7 @@
 #include "Level2.hpp"
 #include "Level3.hpp"
 #include "Level4.hpp"
+#include "Level5.hpp"
 
 void ini();
 void end();
@@ -54,6 +55,13 @@ int main(void) {
         lv4 = new Level4();
     }
     delete lv4;
+
+    Level5* lv5 = new Level5();
+    while(!lv5->loop()) {
+        delete lv5;
+        lv5 = new Level5();
+    }
+    delete lv5;
 
     end();
     return 0;
