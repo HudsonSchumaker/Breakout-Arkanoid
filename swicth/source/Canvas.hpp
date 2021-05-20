@@ -6,6 +6,7 @@
 //
 
 #pragma once
+#include <SDL2/SDL.h>
 
 class Canvas {
     private:
@@ -19,7 +20,7 @@ class Canvas {
         Canvas(int w, int h);
 
         virtual bool loop() = 0;
-        virtual void input() = 0; 
+        virtual void input(SDL_Event& e) = 0; 
         virtual void move() = 0;
         virtual void collision() = 0;
         virtual void render() = 0;
