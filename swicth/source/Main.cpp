@@ -17,12 +17,8 @@
 #include <SDL2/SDL_ttf.h>
 #include <switch.h>
 
-#include "Brick.hpp"
-#include "Paddle.hpp"
-#include "Ball.hpp"
-#include "Color.hpp"
-#include "Point.hpp"
 #include "Level1.hpp"
+#include "Splash.hpp"
 
 // some switch buttons
 #define JOY_A     0
@@ -47,12 +43,13 @@ SDL_Renderer* renderer;
 int main(void) {
     ini();
     
+    Splash* splash = new Splash(renderer);
+
     Level1* lv1 = new Level1(renderer);
     lv1->loop();
     end();
     return 0;
 }
-
 
 void ini() {
     romfsInit();
@@ -77,9 +74,6 @@ void ini() {
     SDL_InitSubSystem(SDL_INIT_JOYSTICK);
     SDL_JoystickEventState(SDL_ENABLE);
     SDL_JoystickOpen(0);
-    SDL_JoystickOpen(1);
-    SDL_JoystickOpen(2);
-    SDL_JoystickOpen(3);
 }
 
 void end() {
