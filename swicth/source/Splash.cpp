@@ -24,12 +24,12 @@ void Splash::load() {
 
 void Splash::loop() {
     while (splashTimer < 600) {
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderClear(renderer);
 
         SDL_Point size;
         SDL_QueryTexture(logo, NULL, NULL, &size.x, &size.y);
-        SDL_Rect rect = { 100, 180, 100, 100 };
+        SDL_Rect rect = { 200, 160, size.x, size.y };
         SDL_RenderCopy(renderer, logo, NULL, &rect);
 
         SDL_RenderPresent(renderer);   
