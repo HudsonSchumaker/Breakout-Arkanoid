@@ -16,7 +16,6 @@ class Level2 final : public Canvas {
     public:
         const static int NUMBER_BRICK = 24;
         
-
         Level2();
         ~Level2();
 
