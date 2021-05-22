@@ -170,7 +170,7 @@ void Level1::load() {
     paddle.setTexture(paddle_img);
 
     ball = Ball(200, 440);
-    ball.setS(4);
+    ball.setSpeed(4);
     ball.setTexture(ball_img);
 }
 
