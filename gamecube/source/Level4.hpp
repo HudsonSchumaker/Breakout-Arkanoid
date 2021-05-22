@@ -15,18 +15,7 @@
 class Level4 final : public Canvas {
     public:
         const static int NUMBER_BRICK = 36;
-        Paddle paddle;
-        Brick bricks[NUMBER_BRICK];    
-        Ball ball;
-
-        GRRLIB_texImg* red_brick_img;
-        GRRLIB_texImg* green_brick_img;
-        GRRLIB_texImg* yellow_brick_img;
-        GRRLIB_texImg* blue_brick_img;
-        GRRLIB_texImg* paddle_img;
-        GRRLIB_texImg* ball_img;
-        GRRLIB_texImg* back_img;
-
+        
         Level4();
         ~Level4();
 
@@ -41,4 +30,16 @@ class Level4 final : public Canvas {
     private:
         bool levelOver = false;
         bool levelWon = false;
+
+        Paddle paddle;
+        Brick bricks[NUMBER_BRICK];    
+        Ball ball;
+
+        GRRLIB_texImg* red_brick_img;
+        GRRLIB_texImg* green_brick_img;
+        GRRLIB_texImg* yellow_brick_img;
+        GRRLIB_texImg* blue_brick_img;
+        GRRLIB_texImg* paddle_img;
+        GRRLIB_texImg* ball_img;
+        GRRLIB_texImg* back_img;
 };
