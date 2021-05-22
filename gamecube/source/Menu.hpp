@@ -10,7 +10,7 @@
 
 class Menu final {
     public: 
-        GRRLIB_texImg* logo;
+        GRRLIB_ttfFont *font;
         
         Menu();
         ~Menu();
