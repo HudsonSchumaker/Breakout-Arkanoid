@@ -25,13 +25,10 @@ void end();
 int main(void) {
     ini();
     
-    Splash* splash = new Splash();
-
-    Menu* menu = new Menu();
-
+    Splash splash = Splash();
+    Menu menu = Menu();
+    
     Level1* lv1 = new Level1();
-    delete splash;
-
     while(!lv1->loop()) {
         delete lv1;
         lv1 = new Level1();
@@ -78,7 +75,6 @@ void ini() {
 }
 
 void end() {
-    //GRRLIB_FreeTTF(font);
     GRRLIB_Exit();
 }
 
