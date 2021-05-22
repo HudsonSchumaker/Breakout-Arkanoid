@@ -6,7 +6,6 @@
 //
 
 #pragma once
-
 #include <grrlib.h>
 #include "Rectangle.hpp"
 

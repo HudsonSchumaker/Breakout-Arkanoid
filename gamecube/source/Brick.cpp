@@ -17,13 +17,13 @@ void Brick::draw(float d) {
 }
 
 /*
-GRRLIB  GRRLIB_DrawImg method params
-xpos	Specifies the x-coordinate of the upper-left corner.
-ypos	Specifies the y-coordinate of the upper-left corner.
-tex	    The texture to draw.
-degrees	Angle of rotation.
-scaleX	Specifies the x-coordinate scale. -1 could be used for flipping the texture horizontally.
-scaleY	Specifies the y-coordinate scale. -1 could be used for flipping the texture vertically.
-color	Color in RGBA format.
+    GRRLIB  GRRLIB_DrawImg method params
+    xpos	Specifies the x-coordinate of the upper-left corner.
+    ypos	Specifies the y-coordinate of the upper-left corner.
+    tex	    The texture to draw.    
+    degrees	Angle of rotation.
+    scaleX	Specifies the x-coordinate scale. -1 could be used for flipping the texture horizontally.
+    scaleY	Specifies the y-coordinate scale. -1 could be used for flipping the texture vertically.
+    color	Color in RGBA format.
 */
 
