@@ -12,6 +12,7 @@
 #include <mp3player.h>
 
 #include "Splash.hpp"
+#include "Menu.hpp"
 #include "Level1.hpp"
 #include "Level2.hpp"
 #include "Level3.hpp"
@@ -25,6 +26,8 @@ int main(void) {
     ini();
     
     Splash* splash = new Splash();
+
+    Menu* menu = new Menu();
 
     Level1* lv1 = new Level1();
     delete splash;
