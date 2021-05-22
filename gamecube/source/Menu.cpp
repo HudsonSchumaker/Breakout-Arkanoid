@@ -7,7 +7,8 @@
 
 #include "Menu.hpp"
 #include "Color.hpp"
-#include "title_png.h"
+#include "Canvas.hpp"
+#include "font_ttf.h"
 
 Menu::Menu() {
     start = false;
@@ -20,7 +21,7 @@ Menu::~Menu() {
 }
 
 void Menu::load() {
-    logo = GRRLIB_LoadTexture(title_png);
+    font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
 }
 
 void Menu::input() {
@@ -37,12 +38,13 @@ void Menu::loop() {
         input();
 
         GRRLIB_FillScreen(Color::getBlack()); 
-        GRRLIB_DrawImg(100, 180, logo, 0, 1, 1, Color::getWhite());
+        GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 150, Canvas::screenHeight/2 - 158, font, "Breakanoid", 72, Color::getOrange());
+        GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 64, Canvas::screenHeight/2 + 64, font, "- Press A to start -", 16, Color::getGray());
         GRRLIB_Render();
     }
     exit();
 }
 
 void Menu::exit() {
-    GRRLIB_FreeTexture(logo);
+    GRRLIB_FreeTTF(font);
 }
