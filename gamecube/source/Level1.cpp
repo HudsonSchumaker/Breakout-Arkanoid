@@ -133,7 +133,7 @@ void Level1::collision() {
 
 void Level1::render() {
     GRRLIB_FillScreen(Color::getBlack()); 
-    //GRRLIB_DrawImg(128, 0, back_img, 0, 1, 1, Color::getWhite());
+    GRRLIB_DrawImg(128, 0, back_img, 0, 1, 1, Color::getWhite());
 
     for (int i = 0; i < NUMBER_BRICK; i++) {
         if (!bricks[i].isDestroyed()) {
