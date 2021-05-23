@@ -41,4 +41,5 @@ class Level3 final : public Canvas {
         GRRLIB_texImg* paddle_img;
         GRRLIB_texImg* ball_img;
         GRRLIB_texImg* back_img;
+        GRRLIB_ttfFont *font;
 };
