@@ -19,7 +19,6 @@
 
 Level5::Level5() {
     load();
-    loop();
 }
 
 Level5::~Level5() {
