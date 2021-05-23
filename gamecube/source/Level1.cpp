@@ -30,7 +30,7 @@ bool Level1::loop() {
     int timer = 0;
     while(timer < 60) {
         GRRLIB_FillScreen(Color::getBlack()); 
-        GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 150, Canvas::screenHeight/2 - 158, font, "Level 1", 72, Color::getOrange());
+        GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 60, Canvas::screenHeight/2 -20, font, "Level 1", 32, Color::getOrange());
         GRRLIB_Render();
         timer++;
     }
