@@ -20,7 +20,6 @@
 
 Level2::Level2() {
     load();
-    loop();
 }
 
 Level2::~Level2() {
