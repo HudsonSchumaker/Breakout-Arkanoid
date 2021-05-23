@@ -16,6 +16,7 @@
 #include "paddle_png.h"
 #include "background_png.h"
 #include "beep_mp3.h"
+#include "font_ttf.h"
 
 Level5::Level5() {
     load();
