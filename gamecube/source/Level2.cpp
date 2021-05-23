@@ -16,6 +16,7 @@
 #include "paddle_png.h"
 #include "background_png.h"
 #include "beep_mp3.h"
+#include "font_ttf.h"
 
 Level2::Level2() {
     load();
@@ -27,6 +28,15 @@ Level2::~Level2() {
 }
 
 bool Level2::loop() {
+
+    int timer = 0;
+    while(timer < 60) {
+        GRRLIB_FillScreen(Color::getBlack()); 
+        GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 60, Canvas::screenHeight/2 -20, font, "Level 2", 32, Color::getOrange());
+        GRRLIB_Render();
+        timer++;
+    }
+
     while(!levelOver && !levelWon) {
         input(); 
         move();
@@ -154,6 +164,7 @@ void Level2::load() {
     paddle_img = GRRLIB_LoadTexture(paddle_png);
     ball_img = GRRLIB_LoadTexture(ball_png);
     back_img = GRRLIB_LoadTexture(background_png);
+    font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
 
     int b = 0;
     for (int l = 0; l < 2; l++) {
@@ -182,4 +193,5 @@ void Level2::unload() {
     GRRLIB_FreeTexture(paddle_img);
     GRRLIB_FreeTexture(ball_img);
     GRRLIB_FreeTexture(back_img);
+    GRRLIB_FreeTTF(font);
 }
