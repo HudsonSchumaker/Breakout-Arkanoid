@@ -21,7 +21,6 @@
 
 Level3::Level3() {
     load();
-    loop();
 }
 
 Level3::~Level3() {
