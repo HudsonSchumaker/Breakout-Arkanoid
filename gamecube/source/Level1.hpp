@@ -35,8 +35,9 @@ class Level1 final : public Canvas {
         Brick bricks[NUMBER_BRICK];    
         Ball ball;
 
-        GRRLIB_texImg* brick_img;
-        GRRLIB_texImg* paddle_img;
-        GRRLIB_texImg* ball_img;
-        GRRLIB_texImg* back_img;
-};
+        GRRLIB_texImg *brick_img;
+        GRRLIB_texImg *paddle_img;
+        GRRLIB_texImg *ball_img;
+        GRRLIB_texImg *back_img;
+        GRRLIB_ttfFont *font;
+}; 
