@@ -23,8 +23,9 @@ int main(void) {
 }
 
 void ini() {
+    Image brick = LoadImage("resources/green_brick.png");
     InitWindow(Canvas::screenWidth, Canvas::screenHeight, "Breakanoid");
-    // SetWindowIcon(egg);
+    SetWindowIcon(brick);
     InitAudioDevice();
     SetMasterVolume(0.3f);
 }
