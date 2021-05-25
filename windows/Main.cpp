@@ -1,5 +1,5 @@
 // 
-// NGC
+// Win
 // Main.cpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
@@ -28,6 +28,7 @@ void ini() {
     SetWindowIcon(brick);
     InitAudioDevice();
     SetMasterVolume(0.3f);
+    SetTargetFPS(60);  
 }
 
 void end() {
