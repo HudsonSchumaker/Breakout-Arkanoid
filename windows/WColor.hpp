@@ -1,5 +1,5 @@
 //
-// NGC
+// Win
 // Color.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
