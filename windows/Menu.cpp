@@ -6,6 +6,7 @@
 //
 
 #include <stdio.h>
+#include "Canvas.hpp"
 #include "Menu.hpp"
 #include "WColor.hpp"
 
@@ -37,7 +38,8 @@ void Menu::loop() {
 
         BeginDrawing();
             ClearBackground(WColor::getBlack());
-            DrawTextEx(font, "Breakanoid", Vector2{54, 3}, 32, 0, WColor::getOrange()); 
+            DrawTextEx(font, "Breakanoid", Vector2{Canvas::screenWidth/2 - 150, Canvas::screenHeight/2 - 158}, 72, 0, WColor::getOrange()); 
+            DrawTextEx(font, "- Press A to start -", Vector2{Canvas::screenWidth/2 - 64, Canvas::screenHeight/2 + 64}, 16, 0, WColor::getGray());
         EndDrawing();
     }
     exit();
