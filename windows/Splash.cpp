@@ -21,7 +21,7 @@ void Splash::load() {
 }
 
 void Splash::loop() {
-    while (splashTimer < 5000) {
+    while (splashTimer < 120) {
         BeginDrawing();
             ClearBackground(ColorFromNormalized((Vector4){1.0, 1.0, 1.0, 1.0}));
             DrawTexture(logo, 100, 180, WHITE);         
