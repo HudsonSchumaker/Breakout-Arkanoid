@@ -30,8 +30,8 @@ Color WColor::getBlack() {
     return Color { 0, 0, 0, 255 };
 }
 
-Vector4 WColor::getGray() {
-    return Vector4 { 128, 128, 128, 255 };
+Color WColor::getGray() {
+    return Color { 128, 128, 128, 255 };
 }
 
 Color WColor::getOrange() {

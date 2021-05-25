@@ -18,7 +18,7 @@ class WColor final {
         static Vector4 getBlue();
         static Vector4 getWhite();
         static Color getBlack();
-        static Vector4 getGray();
+        static Color getGray();
         static Color getOrange();
         static Vector4 getYellow();
         static Vector4 getPink();
