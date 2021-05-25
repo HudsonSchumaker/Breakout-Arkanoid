@@ -333,7 +333,7 @@ ifeq ($(PLATFORM),PLATFORM_WEB)
 endif
 
 # Define all source files required
-PROJECT_SOURCE_FILES ?= Main.cpp Canvas.cpp Splash.cpp
+PROJECT_SOURCE_FILES ?= Main.cpp Canvas.cpp Splash.cpp Menu.cpp WColor.cpp
 
 # Define all object files from source files
 OBJS = $(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES))
