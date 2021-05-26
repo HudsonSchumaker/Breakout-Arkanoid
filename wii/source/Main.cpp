@@ -5,11 +5,8 @@
 // Hudson Schumaker
 //
 
-#include <fat.h>
 #include <gccore.h>
-#include <grrlib.h>
 #include <asndlib.h>
-#include <mp3player.h>
 #include "Splash.hpp"
 #include "Menu.hpp"
 
@@ -28,7 +25,6 @@ int main(void) {
 
 void ini() {
     ASND_Init();
-    MP3Player_Init();
     PAD_Init();
     GRRLIB_Init();
 }
