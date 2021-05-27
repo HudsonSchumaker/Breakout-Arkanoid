@@ -25,7 +25,7 @@ void Splash::loop() {
     while (splashTimer < 120) {
         BeginDrawing();
             ClearBackground(WColor::getWhite());
-            DrawTexture(logo, 100, 180, WColor::getWhite());         
+            DrawTexture(logo, Canvas::screenWidth()/2 - logo.width/2, Canvas::screenHeight()/2 - logo.height/2, WColor::getWhite());         
         EndDrawing();
         splashTimer++;
     }
