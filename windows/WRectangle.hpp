@@ -11,27 +11,27 @@
 #include "Dimension.hpp"
 
 using namespace std;
-class Rectangle final {
+class WRectangle final {
 	private:
 		int x, y, w, h;
 
 	public:
-		Rectangle();
-		Rectangle(int w, int h);
-		Rectangle(int x, int y, int w, int h);
-		Rectangle(Point p);
-		Rectangle(Dimension d);
-		Rectangle(Point p, Dimension d);
+		WRectangle();
+		WRectangle(int w, int h);
+		WRectangle(int x, int y, int w, int h);
+		WRectangle(Point p);
+		WRectangle(Dimension d);
+		WRectangle(Point p, Dimension d);
 
-		Rectangle getBounds();
+		WRectangle getBounds();
 		Point getLocation();
 		Dimension getSize();
 		bool contains(Point p);
-		bool contains(Rectangle r);
+		bool contains(WRectangle r);
 		bool contains(int x, int y);
 		bool contains(int X, int Y, int W, int H);
 		bool inside(int X, int Y);
-		bool intersects(Rectangle r);
+		bool intersects(WRectangle r);
 
 		void setX(int x) { this->x = x; };
 		int getX() const { return x; };

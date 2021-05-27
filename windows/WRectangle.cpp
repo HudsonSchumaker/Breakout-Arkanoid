@@ -5,51 +5,51 @@
 // Hudson Schumaker
 //
 
-#include "Rectangle.hpp"
+#include "WRectangle.hpp"
 
-Rectangle::Rectangle() 
+WRectangle::WRectangle() 
 	: x(0), y(0), w(0), h(0) {}
 
-Rectangle::Rectangle(int w, int h) 
+WRectangle::WRectangle(int w, int h) 
 	: x(0), y(0), w(w), h(h) {}
 
-Rectangle::Rectangle(int x, int y, int w, int h) 
+WRectangle::WRectangle(int x, int y, int w, int h) 
 	: x(x), y(y), w(w), h(h) {}
 
-Rectangle::Rectangle(Point p)
+WRectangle::WRectangle(Point p)
 	: x(p.getX()), y(p.getY()), w(0), h(0) {}
 
-Rectangle::Rectangle(Dimension d) 
+WRectangle::WRectangle(Dimension d) 
 	: x(0), y(0), w(d.getWidth()), h(d.getHeight()) {}
 
-Rectangle::Rectangle(Point p, Dimension d) 
+WRectangle::WRectangle(Point p, Dimension d) 
 	: x(p.getX()), y(p.getY()), w(d.getWidth()), h(d.getHeight()) {}
 
-Rectangle Rectangle::getBounds() {
-	return Rectangle(this->x, this->y, this->w, this->h);
+WRectangle WRectangle::getBounds() {
+	return WRectangle(this->x, this->y, this->w, this->h);
 }
 
-Point Rectangle::getLocation() {
+Point WRectangle::getLocation() {
 	return Point(this->x, this->y);
 }
 
-Dimension Rectangle::getSize() {
+Dimension WRectangle::getSize() {
 	return Dimension(this->w, this->h);
 }
 
-bool Rectangle::contains(Point p) {
+bool WRectangle::contains(Point p) {
 	return contains(p.getX(), p.getY());
 }
 
-bool Rectangle::contains(Rectangle r) {
+bool WRectangle::contains(WRectangle r) {
 	return contains(r.getX(), r.getY(), r.getWidth(), r.getHeight());
 }
 
-bool Rectangle::contains(int x, int y) {
+bool WRectangle::contains(int x, int y) {
 	return inside(x, y);
 }
 
-bool Rectangle::contains(int X, int Y, int W, int H) {
+bool WRectangle::contains(int X, int Y, int W, int H) {
 	int w_ = this->w;
 	int h_ = this->h;
 	if ((w_ | h_ | W | H) < 0) {
@@ -85,7 +85,7 @@ bool Rectangle::contains(int X, int Y, int W, int H) {
 	return true;
 }
 
-bool Rectangle::inside(int X, int Y) {
+bool WRectangle::inside(int X, int Y) {
 	int w_ = this->w;
 	int h_ = this->h;
 	if ((w_ | h_) < 0) {
@@ -104,7 +104,7 @@ bool Rectangle::inside(int X, int Y) {
 	return ((w_ < x_ || w_ > X) && (h_ < y_ || h_ > Y));
 }
 
-bool Rectangle::intersects(Rectangle r) {
+bool WRectangle::intersects(WRectangle r) {
 	int tw = this->w;
 	int th = this->h;
 	int rw = r.getWidth();
