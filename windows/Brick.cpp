@@ -19,7 +19,7 @@ void Brick::draw() {
 void Brick::draw(float d) {
     BeginDrawing();
     {
-        DrawTextureEx(sprite, Vector2 {x, y}, d, 1.0f, WColor::getWhite());
+        DrawTextureEx(sprite, Vector2 {(float)x, (float)y}, d, 1.0f, WColor::getWhite());
     }
     EndDrawing();   
 }

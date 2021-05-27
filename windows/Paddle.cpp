@@ -6,8 +6,7 @@
 //
 
 #include "Paddle.hpp"
-#include "Color.hpp"
-#include "raylib.h"
+#include "WColor.hpp"
 
 void Paddle::move(int dx) {
     this->x += dx;
@@ -24,7 +23,7 @@ void Paddle::draw() {
 void Paddle::draw(float d) {
     BeginDrawing();
     {
-        DrawTextureEx(sprite, Vector2 {x, y}, d, 1.0f, WColor::getWhite());
+        DrawTextureEx(sprite, Vector2 {(float)x, (float)y}, d, 1.0f, WColor::getWhite());
     }
     EndDrawing();   
 }
