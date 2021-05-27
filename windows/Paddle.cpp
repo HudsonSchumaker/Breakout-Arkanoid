@@ -16,7 +16,6 @@ void Paddle::move(int dx) {
 void Paddle::draw() {
     BeginDrawing();
     {
-        ClearBackground(WColor::getWhite());
         DrawTexture(sprite, x, y, WColor::getWhite());         
     }    
     EndDrawing();
