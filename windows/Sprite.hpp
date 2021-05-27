@@ -6,7 +6,8 @@
 //
 
 #pragma once
-#include "Rectangle.hpp"
+#include "WRectangle.hpp"
+#include "raylib.h"
 
 class Sprite {
 	protected:
