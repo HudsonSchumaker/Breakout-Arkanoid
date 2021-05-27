@@ -6,6 +6,7 @@
 //
 
 #include "Splash.hpp"
+#include "WColor.hpp"
 
 Splash::Splash() {
     load();
@@ -23,10 +24,9 @@ void Splash::load() {
 void Splash::loop() {
     while (splashTimer < 120) {
         BeginDrawing();
-            ClearBackground(ColorFromNormalized((Vector4){1.0, 1.0, 1.0, 1.0}));
-            DrawTexture(logo, 100, 180, WHITE);         
+            ClearBackground(WColor::getWhite());
+            DrawTexture(logo, 100, 180, WColor::getWhite());         
         EndDrawing();
-
         splashTimer++;
     }
     exit();
