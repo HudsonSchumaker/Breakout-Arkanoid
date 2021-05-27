@@ -6,8 +6,7 @@
 //
 
 #include "Ball.hpp"
-#include "Color.hpp"
-#include "raylib.h"
+#include "WColor.hpp"
 
 void Ball::move() {
     x += dx * s;
