@@ -18,18 +18,10 @@ void Ball::move() {
 }
 
 void Ball::draw() {
-    BeginDrawing();
-    {
-        DrawTexture(sprite, x, y, WColor::getWhite());         
-    }    
-    EndDrawing();
+    DrawTexture(sprite, x, y, WColor::getWhite());             
 }
 
 void Ball::draw(float d) {
-    BeginDrawing();
-    {
-        DrawTextureEx(sprite, Vector2 {(float)x, (float)y}, d, 1.0f, WColor::getWhite());
-    }
-    EndDrawing();   
+    DrawTextureEx(sprite, Vector2 {(float)x, (float)y}, d, 1.0f, WColor::getWhite());  
 }
 
