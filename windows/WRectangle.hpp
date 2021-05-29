@@ -6,11 +6,9 @@
 //
 
 #pragma once
-
 #include "Point.hpp"
 #include "Dimension.hpp"
 
-using namespace std;
 class WRectangle final {
 	private:
 		int x, y, w, h;
