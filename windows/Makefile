@@ -332,8 +332,8 @@ ifeq ($(PLATFORM),PLATFORM_WEB)
     LDLIBS = $(RAYLIB_RELEASE_PATH)/libraylib.bc
 endif
 
-# Define all source files required
-PROJECT_SOURCE_FILES ?= Main.cpp Canvas.cpp Splash.cpp Menu.cpp WColor.cpp Ball.cpp Paddle.cpp Point.cpp Dimension.cpp WRectangle.cpp Level1.cpp
+# Define all source files required 
+PROJECT_SOURCE_FILES ?= Main.cpp Canvas.cpp Splash.cpp Menu.cpp WColor.cpp Ball.cpp Paddle.cpp Point.cpp Dimension.cpp WRectangle.cpp Level1.cpp Sprite.cpp Brick.cpp
 
 # Define all object files from source files
 OBJS = $(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES))
