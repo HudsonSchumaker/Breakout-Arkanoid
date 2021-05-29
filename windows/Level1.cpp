@@ -1,5 +1,5 @@
 //
-// NGC
+// Win
 // Level1.cpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
@@ -8,14 +8,6 @@
 #include "Level1.hpp"
 #include "Color.hpp"
 #include "Point.hpp"
-#include <mp3player.h>
-
-#include "ball_png.h"
-#include "paddle_png.h"
-#include "red_brick_png.h"
-#include "background_png.h"
-#include "beep_mp3.h"
-#include "font_ttf.h"
 
 Level1::Level1() {
     load();
@@ -29,9 +21,10 @@ bool Level1::loop() {
 
     int timer = 0;
     while(timer < 60) {
-        GRRLIB_FillScreen(Color::getBlack()); 
-        GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 60, Canvas::screenHeight/2 -20, font, "Level 1", 32, Color::getOrange());
-        GRRLIB_Render();
+        BeginDrawing();
+            ClearBackground(WColor::getBlack());
+            DrawTextEx(font, "Level 1", Vector2{Canvas::screenWidth/2 - 60.0f, Canvas::screenHeight/2 - 20.0f}, 32, 0, WColor::getOrange()); 
+        EndDrawing();
         timer++;
     }
 
@@ -45,15 +38,16 @@ bool Level1::loop() {
 }
 
 void Level1::input() {
-    PAD_ScanPads();
-    int dx = PAD_StickX(0);
-    if (dx > 18) {
-        paddle.move(5);
-        return;
-    } 
-    if (dx < -18) {
-        paddle.move(-5);
-        return;
+    if (IsGamepadAvailable(0)) {
+        if (IsGamepadButtonDown(0, GAMEPAD_BUTTON_LEFT_FACE_RIGHT)) {
+            paddle.move(5);
+            return;
+        }
+
+        if (IsGamepadButtonDown(0, GAMEPAD_BUTTON_LEFT_FACE_LEFT)) {
+            paddle.move(-5);
+            return;
+        }
     }
 }
 
@@ -83,7 +77,7 @@ void Level1::collision() {
             }
 
             bricks[i].setDestroyed(true);
-            MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
+            PlaySound(beep);
 
             int ballLeft   = ball.getBounds().getX();
             int ballHeight = ball.getBounds().getHeight();
@@ -142,31 +136,27 @@ void Level1::collision() {
 }
 
 void Level1::render() {
-    GRRLIB_FillScreen(Color::getBlack()); 
-    GRRLIB_DrawImg(128, 0, back_img, 0, 1, 1, Color::getWhite());
-
-    for (int i = 0; i < NUMBER_BRICK; i++) {
-        if (!bricks[i].isDestroyed()) {
-            bricks[i].draw();
-            // Draw bricks colliders
-            // GRRLIB_Rectangle(bricks[i].getX(),  bricks[i].getY(),  bricks[i].getWidth(),  bricks[i].getHeight(),  Color::getWhite(), false);
+    BeginDrawing();
+        ClearBackground(WColor::getBlack());
+        DrawTexture(back_img, 128, 0, WColor::getWhite());         
+        for (int i = 0; i < NUMBER_BRICK; i++) {
+            if (!bricks[i].isDestroyed()) {
+                bricks[i].draw();
+            }
         }
-    }
 
-    paddle.draw();
-    ball.draw();
-    // Draw ball collider
-    // GRRLIB_Rectangle(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight(),  Color::getWhite(), false);
-		
-    GRRLIB_Render();           
+        paddle.draw();
+        ball.draw();		
+    EndDrawing();         
 }
 
 void Level1::load() {
-    brick_img = GRRLIB_LoadTexture(red_brick_png);
-    paddle_img = GRRLIB_LoadTexture(paddle_png);
-    ball_img = GRRLIB_LoadTexture(ball_png);
-    back_img = GRRLIB_LoadTexture(background_png);
-    font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
+    brick_img = LoadTexture("resources/red_brick.png");
+    paddle_img = LoadTexture("resources/paddle.png");
+    ball_img = LoadTexture("resources/ball.png");
+    back_img = LoadTexture("resources/background.png");
+    font = LoadFontEx("resources/font.otf", 64, 0, NULL);
+    beep = LoadSound("resources/beep.wav"); 
 
     int b = 0;
     for (int l = 0; l < 2; l++) {
@@ -186,9 +176,10 @@ void Level1::load() {
 }
 
 void Level1::unload() {
-    GRRLIB_FreeTexture(brick_img);
-    GRRLIB_FreeTexture(paddle_img);
-    GRRLIB_FreeTexture(ball_img);
-    GRRLIB_FreeTexture(back_img);
-    GRRLIB_FreeTTF(font);
+    UnloadTexture(brick_img);
+    UnloadTexture(paddle_img);
+    UnloadTexture(ball_img);
+    UnloadTexture(back_img);
+    UnloadFont(font);
+    UnloadSound(beep);
 }
