@@ -12,6 +12,7 @@
 #include "Ball.hpp"
 #include "Paddle.hpp"
 #include "raylib.h"
+#include <stdlib.h>
 
 class Level1 final : public Canvas {
     public:
