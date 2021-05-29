@@ -9,17 +9,9 @@
 #include "WColor.hpp"
 
 void Brick::draw() {
-    BeginDrawing();
-    {
-        DrawTexture(sprite, x, y, WColor::getWhite());         
-    }    
-    EndDrawing();
+    DrawTexture(sprite, x, y, WColor::getWhite());        
 }
 
 void Brick::draw(float d) {
-    BeginDrawing();
-    {
-        DrawTextureEx(sprite, Vector2 {(float)x, (float)y}, d, 1.0f, WColor::getWhite());
-    }
-    EndDrawing();   
+    DrawTextureEx(sprite, Vector2 {(float)x, (float)y}, d, 1.0f, WColor::getWhite());  
 }
