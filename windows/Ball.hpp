@@ -1,5 +1,5 @@
 //
-// NGC
+// Win
 // Ball.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
