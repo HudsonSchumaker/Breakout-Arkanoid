@@ -6,8 +6,9 @@
 //
 
 #include "Level1.hpp"
-#include "Color.hpp"
+#include "WColor.hpp"
 #include "Point.hpp"
+#include "stdio.h"
 
 Level1::Level1() {
     load();
@@ -161,7 +162,7 @@ void Level1::load() {
     int b = 0;
     for (int l = 0; l < 2; l++) {
         for (int c = 0; c < 12; c++) {
-            bricks[b] = Brick(c * brick_img->w + 128, l * brick_img->h + 64);
+            bricks[b] = Brick(c * brick_img.width + 128, l * brick_img.height + 64);
             bricks[b].setTexture(brick_img);
             b++;
         }
