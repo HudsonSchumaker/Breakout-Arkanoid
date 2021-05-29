@@ -6,8 +6,8 @@
 //
 
 #pragma once
-#include "WRectangle.hpp"
 #include "raylib.h"
+#include "WRectangle.hpp"
 
 class Sprite {
 	protected:
@@ -19,7 +19,7 @@ class Sprite {
 		Sprite();
 		Sprite(int x, int y);
     	Sprite(int x, int y, int w, int h);
-		Rectangle getBounds();
+		WRectangle getBounds();
 		virtual void draw() = 0;
 	
 		void setTexture(Texture2D spr) {
