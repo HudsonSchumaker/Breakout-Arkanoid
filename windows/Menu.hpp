@@ -20,5 +20,5 @@ class Menu final {
         void load();
         void input();
         void loop();
-        void exit();
+        void close();
 };
