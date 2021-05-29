@@ -29,7 +29,7 @@ bool Level1::loop() {
         timer++;
     }
 
-    while(!levelOver && !levelWon) {
+    while(!levelOver && !levelWon) { 
         input(); 
         move();
         collision();
@@ -39,6 +39,11 @@ bool Level1::loop() {
 }
 
 void Level1::input() {
+    if (WindowShouldClose()) {
+        unload();
+        exit(0);
+    }
+    
     if (IsGamepadAvailable(0)) {
         if (IsGamepadButtonDown(0, GAMEPAD_BUTTON_LEFT_FACE_RIGHT)) {
             paddle.move(5);
@@ -139,7 +144,8 @@ void Level1::collision() {
 void Level1::render() {
     BeginDrawing();
         ClearBackground(WColor::getBlack());
-        DrawTexture(back_img, 128, 0, WColor::getWhite());         
+        DrawTexture(back_img, 128, 0, WColor::getWhite());     
+        
         for (int i = 0; i < NUMBER_BRICK; i++) {
             if (!bricks[i].isDestroyed()) {
                 bricks[i].draw();
@@ -148,7 +154,7 @@ void Level1::render() {
 
         paddle.draw();
         ball.draw();		
-    EndDrawing();         
+    EndDrawing();  
 }
 
 void Level1::load() {
