@@ -1,5 +1,5 @@
 // 
-// NGC
+// Win
 // Sprite.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
