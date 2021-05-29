@@ -7,6 +7,7 @@
 
 #include <ctime>
 #include <stdio.h>
+#include <stdlib.h>
 #include "Menu.hpp"
 #include "Canvas.hpp"
 #include "WColor.hpp"
@@ -18,7 +19,7 @@ Menu::Menu() {
 }
 
 Menu::~Menu() {
-    exit();
+    close();
 }
 
 void Menu::load() {
@@ -35,6 +36,10 @@ void Menu::input() {
 
 void Menu::loop() {
     while (!start) {
+        if (WindowShouldClose()) {
+            close();
+            exit(0);
+        }
         input();
 
         time_t currentTime;
@@ -50,9 +55,9 @@ void Menu::loop() {
         }    
         EndDrawing();
     }
-    exit();
+    close();
 }
 
-void Menu::exit() {
+void Menu::close() {
     UnloadFont(font);
 }
