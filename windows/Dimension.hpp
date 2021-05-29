@@ -1,5 +1,5 @@
 //
-// NGC
+// Win
 // Dimension.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
