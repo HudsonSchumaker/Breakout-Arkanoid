@@ -13,11 +13,7 @@ void Paddle::move(int dx) {
 }
 
 void Paddle::draw() {
-    BeginDrawing();
-    {
-        DrawTexture(sprite, x, y, WColor::getWhite());         
-    }    
-    EndDrawing();
+    DrawTexture(sprite, x, y, WColor::getWhite());         
 }
 
 void Paddle::draw(float d) {
