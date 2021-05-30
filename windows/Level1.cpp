@@ -144,7 +144,7 @@ void Level1::collision() {
 void Level1::render() {
     BeginDrawing();
         ClearBackground(WColor::getBlack());
-        DrawTexture(back_img, 128, 0, WColor::getWhite());     
+        DrawTexture(back_img, 0, 0, WColor::getWhite());     
         
         for (int i = 0; i < NUMBER_BRICK; i++) {
             if (!bricks[i].isDestroyed()) {
@@ -161,9 +161,9 @@ void Level1::load() {
     brick_img = LoadTexture("resources/red_brick.png");
     paddle_img = LoadTexture("resources/paddle.png");
     ball_img = LoadTexture("resources/ball.png");
-    back_img = LoadTexture("resources/background.png");
     font = LoadFontEx("resources/font.otf", 64, 0, NULL);
     beep = LoadSound("resources/beep.wav"); 
+    back_img = LoadTexture("resources/background.png");
 
     int b = 0;
     for (int l = 0; l < 2; l++) {
