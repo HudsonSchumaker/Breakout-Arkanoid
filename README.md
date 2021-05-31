@@ -7,6 +7,6 @@ My version of a mixed game from Breakout(Atari) and Arkanoid(Taito)
  - Windows
 
 # Compiling
-Nintendo Game Cube
+- Nintendo Game Cube
 Compiling for GameCube requires the libogc libraries from [devkitPro](https://devkitpro.org/wiki/Getting_Started). A fork of GRRLIB for NGC that can be found [here](https://github.com/capz/GRRLIB). Then, execute make in the /gamecube directory.
 
