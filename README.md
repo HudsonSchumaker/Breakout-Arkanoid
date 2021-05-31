@@ -5,3 +5,7 @@ My version of a mixed game from Breakout(Atari) and Arkanoid(Taito)
  - Wii
  - Switch
  - Windows
+
+
+# Compiling
+Nintendo Game Cube
