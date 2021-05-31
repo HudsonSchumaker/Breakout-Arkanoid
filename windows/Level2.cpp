@@ -142,12 +142,19 @@ void Level2::collision() {
 }
 
 void Level2::render() {
-    while(!levelOver && !levelWon) { 
-        input(); 
-        move();
-        collision();
-        render(); 
-    } 
+    BeginDrawing();
+        ClearBackground(WColor::getBlack());
+        DrawTexture(back_img, 0, 0, WColor::getWhite());     
+        
+        for (int i = 0; i < NUMBER_BRICK; i++) {
+            if (!bricks[i].isDestroyed()) {
+                bricks[i].draw();
+            }
+        }
+
+        paddle.draw();
+        ball.draw();		
+    EndDrawing();  
 }
 
 void Level2::load() {
