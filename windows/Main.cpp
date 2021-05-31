@@ -10,6 +10,7 @@
 #include "Canvas.hpp"
 #include "Menu.hpp"
 #include "Level1.hpp"
+#include "Level2.hpp"
 
 void ini();
 void end();
@@ -27,6 +28,13 @@ int main(void) {
     }
     delete lv1;
     
+    Level2* lv2 = new Level2();
+    while(!lv2->loop()) {
+        delete lv2;
+        lv2 = new Level2();
+    }
+    delete lv2;
+
     end();
     return 0;
 }
