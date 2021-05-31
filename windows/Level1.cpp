@@ -6,9 +6,10 @@
 //
 
 #include "Level1.hpp"
-#include "WColor.hpp"
 #include "Point.hpp"
-#include "stdio.h"
+#include "WColor.hpp"
+#include <stdio.h>
+#include <stdlib.h>
 
 Level1::Level1() {
     load();
