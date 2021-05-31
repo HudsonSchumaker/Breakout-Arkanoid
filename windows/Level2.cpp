@@ -23,9 +23,10 @@ bool Level2::loop() {
 
     int timer = 0;
     while(timer < 60) {
-        GRRLIB_FillScreen(Color::getBlack()); 
-        GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 60, Canvas::screenHeight/2 -20, font, "Level 2", 32, Color::getOrange());
-        GRRLIB_Render();
+        BeginDrawing();
+            ClearBackground(WColor::getBlack());
+            DrawTextEx(font, "Level 2", Vector2{Canvas::screenWidth/2 - 60.0f, Canvas::screenHeight/2 - 20.0f}, 32, 0, WColor::getOrange()); 
+        EndDrawing();
         timer++;
     }
 
@@ -82,7 +83,7 @@ void Level2::collision() {
             }
 
             bricks[i].setDestroyed(true);
-            MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
+            PlaySound(beep);
 
             int ballLeft   = ball.getBounds().getX();
             int ballHeight = ball.getBounds().getHeight();
@@ -141,23 +142,12 @@ void Level2::collision() {
 }
 
 void Level2::render() {
-
-    int timer = 0;
-    while(timer < 60) {
-        BeginDrawing();
-            ClearBackground(WColor::getBlack());
-            DrawTextEx(font, "Level 2", Vector2{Canvas::screenWidth/2 - 60.0f, Canvas::screenHeight/2 - 20.0f}, 32, 0, WColor::getOrange()); 
-        EndDrawing();
-        timer++;
-    }
-
     while(!levelOver && !levelWon) { 
         input(); 
         move();
         collision();
         render(); 
-    }
-    return levelWon;     
+    } 
 }
 
 void Level2::load() {
@@ -172,7 +162,7 @@ void Level2::load() {
     int b = 0;
     for (int l = 0; l < 2; l++) {
         for (int c = 0; c < 12; c++) {
-            bricks[b] = Brick(c * red_brick_img->w + 128, l * red_brick_img->h + 64);
+            bricks[b] = Brick(c * red_brick_img.width + 128, l * red_brick_img.height + 64);
             if (c % 2 == 0) {
                 bricks[b].setTexture(red_brick_img);
             } else {
