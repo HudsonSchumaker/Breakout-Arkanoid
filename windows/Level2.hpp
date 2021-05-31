@@ -1,5 +1,5 @@
 //
-// NGC
+// Win
 // Level2.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
@@ -34,7 +34,7 @@ class Level2 final : public Canvas {
         Paddle paddle;
         Brick bricks[NUMBER_BRICK];    
         Ball ball;
-        
+
         Texture2D red_brick_img;
         Texture2D green_brick_img;
         Texture2D paddle_img;
