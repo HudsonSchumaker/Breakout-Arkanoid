@@ -6,18 +6,10 @@
 //
 
 #include "Level3.hpp"
-#include "Color.hpp"
 #include "Point.hpp"
-#include <mp3player.h>
-
-#include "ball_png.h"
-#include "red_brick_png.h"
-#include "green_brick_png.h"
-#include "yellow_brick_png.h"
-#include "paddle_png.h"
-#include "background_png.h"
-#include "beep_mp3.h"
-#include "font_ttf.h"
+#include "WColor.hpp"
+#include <stdio.h>
+#include <stdlib.h>
 
 Level3::Level3() {
     load();
@@ -31,9 +23,10 @@ bool Level3::loop() {
 
     int timer = 0;
     while(timer < 60) {
-        GRRLIB_FillScreen(Color::getBlack()); 
-        GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 60, Canvas::screenHeight/2 -20, font, "Level 3", 32, Color::getOrange());
-        GRRLIB_Render();
+        BeginDrawing();
+            ClearBackground(WColor::getBlack());
+            DrawTextEx(font, "Level 3", Vector2{Canvas::screenWidth/2 - 60.0f, Canvas::screenHeight/2 - 20.0f}, 32, 0, WColor::getOrange()); 
+        EndDrawing();
         timer++;
     }
 
@@ -47,15 +40,21 @@ bool Level3::loop() {
 }
 
 void Level3::input() {
-    PAD_ScanPads();
-    int dx = PAD_StickX(0);
-    if (dx > 18) {
-        paddle.move(5);
-        return;
-    } 
-    if (dx < -18) {
-        paddle.move(-5);
-        return;
+    if (WindowShouldClose()) {
+        unload();
+        exit(0);
+    }
+    
+    if (IsGamepadAvailable(0)) {
+        if (IsGamepadButtonDown(0, GAMEPAD_BUTTON_LEFT_FACE_RIGHT)) {
+            paddle.move(5);
+            return;
+        }
+
+        if (IsGamepadButtonDown(0, GAMEPAD_BUTTON_LEFT_FACE_LEFT)) {
+            paddle.move(-5);
+            return;
+        }
     }
 }
 
@@ -84,7 +83,7 @@ void Level3::collision() {
             }
 
             bricks[i].setDestroyed(true);
-            MP3Player_PlayBuffer(beep_mp3, beep_mp3_size, NULL);
+            PlaySound(beep);
 
             int ballLeft   = ball.getBounds().getX();
             int ballHeight = ball.getBounds().getHeight();
@@ -143,34 +142,35 @@ void Level3::collision() {
 }
 
 void Level3::render() {
-    GRRLIB_FillScreen(Color::getBlack()); 
-    GRRLIB_DrawImg(128, 0, back_img, 0, 1, 1, Color::getWhite());
-
-    for (int i = 0; i < NUMBER_BRICK; i++) {
-        if (!bricks[i].isDestroyed()) {
-            bricks[i].draw();
+    BeginDrawing();
+        ClearBackground(WColor::getBlack());
+        DrawTexture(back_img, 0, 0, WColor::getWhite());     
+        
+        for (int i = 0; i < NUMBER_BRICK; i++) {
+            if (!bricks[i].isDestroyed()) {
+                bricks[i].draw();
+            }
         }
-    }
 
-    paddle.draw();
-    ball.draw();
-
-    GRRLIB_Render();           
+        paddle.draw();
+        ball.draw();		
+    EndDrawing();     
 }
 
 void Level3::load() {
-    red_brick_img = GRRLIB_LoadTexture(red_brick_png);
-    green_brick_img = GRRLIB_LoadTexture(green_brick_png);
-    yellow_brick_img = GRRLIB_LoadTexture(yellow_brick_png);
-    paddle_img = GRRLIB_LoadTexture(paddle_png);
-    ball_img = GRRLIB_LoadTexture(ball_png);
-    back_img = GRRLIB_LoadTexture(background_png);
-    font = GRRLIB_LoadTTF(font_ttf, font_ttf_size);
+    green_brick_img = LoadTexture("resources/green_brick.png");
+    red_brick_img = LoadTexture("resources/red_brick.png");
+    yellow_brick_img = LoadTexture("resources/yellow_brick.png");
+    paddle_img = LoadTexture("resources/paddle.png");
+    ball_img = LoadTexture("resources/ball.png");
+    font = LoadFontEx("resources/font.otf", 64, 0, NULL);
+    beep = LoadSound("resources/beep.wav"); 
+    back_img = LoadTexture("resources/background.png");
 
     int b = 0;
     for (int l = 0; l < 3; l++) {
         for (int c = 0; c < 12; c++) {
-            bricks[b] = Brick(c * red_brick_img->w + 128, l * red_brick_img->h + 64);
+            bricks[b] = Brick(c * red_brick_img.width + 128, l * red_brick_img.height + 64);
             if (c % 2 == 0) {
                 if (c % 4 == 0) {
                     bricks[b].setTexture(yellow_brick_img);
@@ -193,11 +193,12 @@ void Level3::load() {
 }
 
 void Level3::unload() {
-    GRRLIB_FreeTexture(red_brick_img);
-    GRRLIB_FreeTexture(green_brick_img);
-    GRRLIB_FreeTexture(yellow_brick_img);
-    GRRLIB_FreeTexture(paddle_img);
-    GRRLIB_FreeTexture(ball_img);
-    GRRLIB_FreeTexture(back_img);
-    GRRLIB_FreeTTF(font);
+    UnloadTexture(green_brick_img);
+    UnloadTexture(red_brick_img);
+    UnloadTexture(yellow_brick_img);
+    UnloadTexture(paddle_img);
+    UnloadTexture(ball_img);
+    UnloadTexture(back_img);
+    UnloadFont(font);
+    UnloadSound(beep);
 }
