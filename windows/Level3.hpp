@@ -6,11 +6,11 @@
 //
 
 #pragma once
-
 #include "Canvas.hpp"
 #include "Brick.hpp"
 #include "Ball.hpp"
 #include "Paddle.hpp"
+#include "raylib.h"
 
 class Level3 final : public Canvas {
     public:
