@@ -37,6 +37,7 @@ class Level3 final : public Canvas {
 
         Texture2D red_brick_img;
         Texture2D green_brick_img;
+        Texture2D yellow_brick_img;
         Texture2D paddle_img;
         Texture2D ball_img;
         Texture2D back_img;        
