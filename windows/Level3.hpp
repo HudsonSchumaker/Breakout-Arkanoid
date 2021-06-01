@@ -35,11 +35,11 @@ class Level3 final : public Canvas {
         Brick bricks[NUMBER_BRICK];    
         Ball ball;
 
-        GRRLIB_texImg* red_brick_img;
-        GRRLIB_texImg* green_brick_img;
-        GRRLIB_texImg* yellow_brick_img;
-        GRRLIB_texImg* paddle_img;
-        GRRLIB_texImg* ball_img;
-        GRRLIB_texImg* back_img;
-        GRRLIB_ttfFont *font;
+        Texture2D red_brick_img;
+        Texture2D green_brick_img;
+        Texture2D paddle_img;
+        Texture2D ball_img;
+        Texture2D back_img;        
+        Font font;
+        Sound beep;
 };
