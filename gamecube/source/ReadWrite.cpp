@@ -21,7 +21,7 @@ ReadWrite::~ReadWrite() {}
 void ReadWrite::save(int level) {
     std::ofstream mc;
     mc.open("brekanoid.sav");
-    mc <<  level;
+    mc << level;
     mc.close();
 }
 
