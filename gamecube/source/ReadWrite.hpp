@@ -8,10 +8,10 @@
 #pragma once
 
 
-class Save final {
+class ReadWrite final {
     public: 
-        Save();
-        ~Save();
+        ReadWrite();
+        ~ReadWrite();
 
         void save(int level);
         int load();

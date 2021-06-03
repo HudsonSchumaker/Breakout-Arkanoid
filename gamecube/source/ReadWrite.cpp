@@ -5,30 +5,29 @@
 // Hudson Schumaker
 //
 
-#include "Save.hpp"
-#include <stdio.h>
-#include <stdlib.h>
-#include <gccore.h>
+#include "ReadWrite.hpp"
 #include <fat.h>
+#include <gccore.h>
+#include <fstream>
 
-Save::Save() {
+ReadWrite::ReadWrite() {
     fatInitDefault();
 }
 
-Save::~Save() {}
+ReadWrite::~ReadWrite() {}
 
-void Save::save(int level) {
+void ReadWrite::save(int level) {
 
 }
 
-int Save::load() {
+int ReadWrite::load() {
     int level = 0;
-    std::ifstream save;
-    save.open("brekanoid.sav", std::ifstream::in);
+    std::ifstream mc;
+    mc.open("brekanoid.sav", std::ifstream::in);
 
-    if(!save.fail()) {
-        save >> level;
+    if(!mc.fail()) {
+        mc >> level;
     }
-    save.close();
+    mc.close();
     return level;
 }
