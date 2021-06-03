@@ -6,7 +6,7 @@
 //
 
 #pragma once
-
+#include <string>
 
 class ReadWrite final {
     public: 
@@ -17,5 +17,6 @@ class ReadWrite final {
         int load();
 
     private:
+        static const std::string fileName;
 
 };
