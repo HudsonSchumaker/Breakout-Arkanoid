@@ -20,7 +20,7 @@ ReadWrite::~ReadWrite() {}
 
 void ReadWrite::save(int level) {
     std::ofstream mc;
-    mc.open("brekanoid.sav");
+    mc.open(fileName);
     mc << level;
     mc.close();
 }
@@ -28,7 +28,7 @@ void ReadWrite::save(int level) {
 int ReadWrite::load() {
     int level = 0;
     std::ifstream mc;
-    mc.open("brekanoid.sav", std::ifstream::in);
+    mc.open(fileName, std::ifstream::in);
 
     if(!mc.fail()) {
         mc >> level;
