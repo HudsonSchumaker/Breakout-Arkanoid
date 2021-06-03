@@ -10,6 +10,8 @@
 #include <gccore.h>
 #include <fstream>
 
+const std::string ReadWrite::fileName = "breakanoid.sav";
+
 ReadWrite::ReadWrite() {
     fatInitDefault();
 }
@@ -17,7 +19,10 @@ ReadWrite::ReadWrite() {
 ReadWrite::~ReadWrite() {}
 
 void ReadWrite::save(int level) {
-
+    std::ofstream mc;
+    mc.open("brekanoid.sav");
+    mc <<  level;
+    mc.close();
 }
 
 int ReadWrite::load() {
