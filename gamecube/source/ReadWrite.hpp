@@ -6,10 +6,7 @@
 //
 
 #pragma once
-#include <stdio.h>
-#include <stdlib.h>
-#include <gccore.h>
-#include <fat.h>
+
 
 class Save final {
     public: 
