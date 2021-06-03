@@ -13,6 +13,7 @@
 
 #include "Splash.hpp"
 #include "Menu.hpp"
+#include "ReadWrite.hpp"
 #include "Level1.hpp"
 #include "Level2.hpp"
 #include "Level3.hpp"
@@ -24,9 +25,13 @@ void end();
 
 int main(void) {
     ini();
+
+    int level = 0;
+    ReadWrite rw = ReadWrite();
+    level = rw.load();
     
     Splash splash = Splash();
-    Menu menu = Menu();
+    Menu menu = Menu(level);
     
     Level1* lv1 = new Level1();
     while(!lv1->loop()) {

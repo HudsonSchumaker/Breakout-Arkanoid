@@ -10,9 +10,10 @@
 
 class Menu final {
     public: 
+        int best = 0;
         GRRLIB_ttfFont *font;
         
-        Menu();
+        Menu(int level);
         ~Menu();
 
     private:

@@ -10,8 +10,9 @@
 #include "Color.hpp"
 #include "Canvas.hpp"
 #include "font_ttf.h"
+#include <string>
 
-Menu::Menu() {
+Menu::Menu(int level) : best(level) {
     start = false;
     load();
     loop();
@@ -35,6 +36,10 @@ void Menu::input() {
 }
 
 void Menu::loop() {
+    std::string value = "Best Level: " + std::to_string(best);
+    char char_array[value.length() + 1];
+    strcpy(char_array, value.c_str());
+    
     while (!start) {
         input();
        
@@ -46,7 +51,8 @@ void Menu::loop() {
         if (currentTime % 2 == 0) {
             GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 66, Canvas::screenHeight/2 + 64, font, "- Press A to start -", 16, Color::getGray());
         }
-        
+
+        GRRLIB_PrintfTTF(Canvas::screenWidth/2 - 46, Canvas::screenHeight/2 + 84, font, char_array, 16, Color::getGray());        
         GRRLIB_Render();
     }
     exit();
