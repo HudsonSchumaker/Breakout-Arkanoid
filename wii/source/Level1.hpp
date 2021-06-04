@@ -6,7 +6,6 @@
 //
 
 #pragma once
-
 #include "Canvas.hpp"
 #include "Brick.hpp"
 #include "Ball.hpp"
