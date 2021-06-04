@@ -1,6 +1,6 @@
 //
 // NGC
-// Level12cpp
+// Level2.cpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
 //
