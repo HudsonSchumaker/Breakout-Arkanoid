@@ -10,6 +10,9 @@
 #include "Splash.hpp"
 #include "Menu.hpp"
 #include "Level1.hpp"
+#include "Level2.hpp"
+#include "Level3.hpp"
+#include "Level4.hpp"
 
 void ini();
 void end();
@@ -26,7 +29,6 @@ int main(void) {
         lv1 = new Level1();
     }
     delete lv1;
-    rw.save(1);
     
     Level2* lv2 = new Level2();
     while(!lv2->loop()) {
@@ -34,7 +36,6 @@ int main(void) {
         lv2 = new Level2();
     }
     delete lv2;
-    rw.save(2);
 
     Level3* lv3 = new Level3();
     while(!lv3->loop()) {
@@ -42,7 +43,6 @@ int main(void) {
         lv3 = new Level3();
     }
     delete lv3;
-    rw.save(3);
 
     Level4* lv4 = new Level4();
     while(!lv4->loop()) {
