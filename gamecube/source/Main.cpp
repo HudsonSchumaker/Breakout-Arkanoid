@@ -49,7 +49,6 @@ int main(void) {
     delete lv2;
     rw.save(2);
 
-
     Level3* lv3 = new Level3();
     while(!lv3->loop()) {
         delete lv3;
