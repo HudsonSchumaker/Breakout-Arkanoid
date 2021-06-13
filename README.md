@@ -12,3 +12,5 @@ My version of a mixed game from Breakout(Atari) and Arkanoid(Taito)
 
 > Compiling for Nintendo Wii requires the libogc libraries from [devkitPro](https://devkitpro.org/wiki/Getting_Started). GRRLIB for Wii that can be found [here](https://github.com/GRRLIB/GRRLIB). Then, execute make in the /wii directory.
 
+> Compiling for Nintendo Switch requires the libnx libraries from [devkitPro](https://devkitpro.org/wiki/Getting_Started). SDL2 for Switch that can installed using pacman. Search for switch sdl ((dkp-)pacman -Ss switch sdl).
+
