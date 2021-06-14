@@ -1,5 +1,5 @@
 //
-// Win
+// MacOS
 // Color.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
