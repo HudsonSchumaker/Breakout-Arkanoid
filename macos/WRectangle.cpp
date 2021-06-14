@@ -1,5 +1,5 @@
 //
-// Win
+// MacOS
 // Rectangle.cpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
