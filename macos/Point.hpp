@@ -1,5 +1,5 @@
 //
-// Win
+// MacOS
 // Point.hpp
 // SchumakerTam Lab.
 // Hudson Schumaker

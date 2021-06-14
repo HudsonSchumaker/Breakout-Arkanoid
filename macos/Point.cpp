@@ -1,5 +1,5 @@
 //
-// Win
+// MacOS
 // Point.cpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
