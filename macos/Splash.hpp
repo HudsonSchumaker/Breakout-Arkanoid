@@ -1,5 +1,5 @@
 //
-// Win
+// MacOS
 // Splash.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
