@@ -1,5 +1,5 @@
 //
-// Win
+// MacOS
 // Menu.cpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
