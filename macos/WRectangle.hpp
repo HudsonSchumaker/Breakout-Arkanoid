@@ -1,5 +1,5 @@
 //
-// Win
+// MacOS
 // Dimension.hpp
 // SchumakerTeam Lab. 
 // Hudson Schumaker
