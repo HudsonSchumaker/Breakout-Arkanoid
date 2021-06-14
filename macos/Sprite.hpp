@@ -1,5 +1,5 @@
 // 
-// Win
+// MacOS
 // Sprite.hpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
