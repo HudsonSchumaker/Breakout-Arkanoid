@@ -1,5 +1,5 @@
 //
-// Win
+// MacOS
 // Paddle.cpp
 // SchumakerTeam Lab.
 // Hudson Schumaker
