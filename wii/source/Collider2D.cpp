@@ -104,18 +104,18 @@ bool Collider2D::inside(int X, int Y) {
 	return ((w_ < x_ || w_ > X) && (h_ < y_ || h_ > Y));
 }
 
-bool Collider2D::intersects(Collider2D r) {
+bool Collider2D::intersects(Collider2D c) {
 	int tw = this->w;
 	int th = this->h;
-	int rw = r.getWidth();
-	int rh = r.getHeight();
+	int rw = c.getWidth();
+	int rh = c.getHeight();
 	if (rw <= 0 || rh <= 0 || tw <= 0 || th <= 0) {
 		return false;
 	}
 	int tx = this->x;
 	int ty = this->y;
-	int rx = r.getX();
-	int ry = r.getY();
+	int rx = c.getX();
+	int ry = c.getY();
 	rw += rx;
 	rh += ry;
 	tw += tx;
