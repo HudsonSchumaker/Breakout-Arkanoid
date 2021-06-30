@@ -36,3 +36,6 @@
 *.elf
 *.nacp
 *.nro
+
+# MacOS
+.DS_Store
