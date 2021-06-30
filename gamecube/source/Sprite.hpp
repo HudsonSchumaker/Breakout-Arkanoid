@@ -7,7 +7,7 @@
 
 #pragma once
 #include <grrlib.h>
-#include "Rectangle.hpp"
+#include "Collider2D.hpp"
 
 class Sprite {
 	protected:
@@ -19,7 +19,7 @@ class Sprite {
 		Sprite();
 		Sprite(int x, int y);
     	Sprite(int x, int y, int w, int h);
-		Rectangle getBounds();
+		Collider2D getBounds();
 		virtual void draw() = 0;
 	
 		void setTexture(GRRLIB_texImg* spr) {
