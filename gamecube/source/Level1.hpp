@@ -12,7 +12,7 @@
 #include "Ball.hpp"
 #include "Paddle.hpp"
 
-class Level1 final: public Canvas {
+class Level1  : public Canvas {
     public:
         const static int NUMBER_BRICK = 24;
         
