@@ -7,8 +7,8 @@
 
 #include "Dimension.hpp"
 
-Dimension::Dimension(): w(0), h(0) {}
-Dimension::Dimension(int w, int h): w(w), h(h) {}
+Dimension::Dimension() : w(0), h(0) {}
+Dimension::Dimension(int w, int h) : w(w), h(h) {}
 
 void Dimension::setDimension(Dimension d) {
 	this->w = d.getWidth();
