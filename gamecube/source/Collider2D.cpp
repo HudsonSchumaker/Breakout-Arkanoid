@@ -7,20 +7,15 @@
 
 #include "Collider2D.hpp"
 
-Collider2D::Collider2D() 
-	: x(0), y(0), w(0), h(0) {}
+Collider2D::Collider2D(): x(0), y(0), w(0), h(0) {}
 
-Collider2D::Collider2D(int w, int h) 
-	: x(0), y(0), w(w), h(h) {}
+Collider2D::Collider2D(int w, int h): x(0), y(0), w(w), h(h) {}
 
-Collider2D::Collider2D(int x, int y, int w, int h) 
-	: x(x), y(y), w(w), h(h) {}
+Collider2D::Collider2D(int x, int y, int w, int h): x(x), y(y), w(w), h(h) {}
 
-Collider2D::Collider2D(Point p)
-	: x(p.getX()), y(p.getY()), w(0), h(0) {}
+Collider2D::Collider2D(Point p): x(p.getX()), y(p.getY()), w(0), h(0) {}
 
-Collider2D::Collider2D(Dimension d) 
-	: x(0), y(0), w(d.getWidth()), h(d.getHeight()) {}
+Collider2D::Collider2D(Dimension d): x(0), y(0), w(d.getWidth()), h(d.getHeight()) {}
 
 Collider2D::Collider2D(Point p, Dimension d) 
 	: x(p.getX()), y(p.getY()), w(d.getWidth()), h(d.getHeight()) {}
