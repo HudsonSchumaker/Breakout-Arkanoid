@@ -43,7 +43,11 @@ int main(void) {
     Splash* splash = new Splash(renderer);
 
     Level1* lv1 = new Level1(renderer);
-    lv1->loop();
+    while(!lv1->loop()) {
+        delete lv1;
+        lv1 = new Level1();
+    }
+    delete lv1;
     end();
     return 0;
 }
