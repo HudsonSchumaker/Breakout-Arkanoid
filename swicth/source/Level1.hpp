@@ -17,21 +17,7 @@
 class Level1 final : public Canvas {
     public:
         const static int NUMBER_BRICK = 24;
-        Paddle paddle;
-        Brick bricks[NUMBER_BRICK];    
-        Ball ball;
-
-        SDL_Renderer* renderer;
-
-        SDL_Surface* paddle_surf;
-        SDL_Surface* brick_surf;
-        SDL_Surface* ball_surf;
-        SDL_Surface* background_surf;
-
-        SDL_Texture* paddleSprite;
-        SDL_Texture* brickSprite;      //= SDL_CreateTextureFromSurface(renderer, lavaSprite_surf);
-        SDL_Texture* ballSprite;       //= SDL_CreateTextureFromSurface(renderer, platformSprite_surf);
-        SDL_Texture* backgroundSprite; //= SDL_CreateTextureFromSurface(renderer, coinSprite_surf);
+        
 
         Level1() : Canvas() {};
         Level1(SDL_Renderer* renderer);
@@ -48,4 +34,20 @@ class Level1 final : public Canvas {
     private:
         bool levelOver = false;
         bool levelWon = false;
+
+        Paddle paddle;
+        Brick bricks[NUMBER_BRICK];    
+        Ball ball;
+
+        SDL_Renderer* renderer;
+
+        SDL_Surface* paddle_surf;
+        SDL_Surface* brick_surf;
+        SDL_Surface* ball_surf;
+        SDL_Surface* background_surf;
+
+        SDL_Texture* paddleSprite;
+        SDL_Texture* brickSprite;      //= SDL_CreateTextureFromSurface(renderer, lavaSprite_surf);
+        SDL_Texture* ballSprite;       //= SDL_CreateTextureFromSurface(renderer, platformSprite_surf);
+        SDL_Texture* backgroundSprite; //= SDL_CreateTextureFromSurface(renderer, coinSprite_surf);
 };
