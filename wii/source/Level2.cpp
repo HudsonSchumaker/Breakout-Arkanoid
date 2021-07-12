@@ -72,6 +72,7 @@ void Level2::collision() {
         if (bricks[i].isDestroyed()) {
             j++;
         }
+
         if (j > 23) {
             levelWon = true;
         }
@@ -97,14 +98,13 @@ void Level2::collision() {
 
             if (bricks[i].getBounds().contains(pointRight)) {
                 ball.setDX(-1);
-            }
-            else if (bricks[i].getBounds().contains(pointLeft)) {
+            } else if (bricks[i].getBounds().contains(pointLeft)) {
                 ball.setDX(1);
             }
+            
             if (bricks[i].getBounds().contains(pointTop)) {
                 ball.setDY(1);
-            }
-            else if (bricks[i].getBounds().contains(pointBottom)) {
+            } else if (bricks[i].getBounds().contains(pointBottom)) {
                 ball.setDY(-1);
             }
         }
@@ -126,14 +126,17 @@ void Level2::collision() {
             ball.setDX(-1);
             ball.setDY(-1 * ball.getDY());
         }
+
         if (ballLPos >= second && ballLPos < third) {
             ball.setDX(0);
             ball.setDY(-1);
         }
+
         if (ballLPos >= third && ballLPos < fourth) {
             ball.setDX(1);
             ball.setDY(-1 * ball.getDY());
         }
+        
         if (ballLPos > fourth) {
             ball.setDX(1);
             ball.setDY(-1);
