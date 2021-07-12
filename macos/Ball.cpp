@@ -27,4 +27,3 @@ void Ball::draw(float d) {
     Vector2 pos = {fx, fy};
     DrawTextureEx(sprite, pos, d, 1.0f, WColor::getWhite()); 
 }
-
