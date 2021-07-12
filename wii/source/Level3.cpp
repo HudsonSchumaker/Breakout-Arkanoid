@@ -53,6 +53,7 @@ void Level3::input() {
         paddle.move(5);
         return;
     } 
+
     if (dx < -18) {
         paddle.move(-5);
         return;
@@ -73,10 +74,12 @@ void Level3::collision() {
         if (bricks[i].isDestroyed()) {
             j++;
         }
+
         if (j > 35) {
             levelWon = true;
         }
-    }    
+    }   
+
     for (int i = 0; i < NUMBER_BRICK; i++) {
         if ((ball.getBounds()).intersects(bricks[i].getBounds())) {
             if(bricks[i].isDestroyed()) {
@@ -98,14 +101,13 @@ void Level3::collision() {
 
             if (bricks[i].getBounds().contains(pointRight)) {
                 ball.setDX(-1);
-            }
-            else if (bricks[i].getBounds().contains(pointLeft)) {
+            } else if (bricks[i].getBounds().contains(pointLeft)) {
                 ball.setDX(1);
             }
+
             if (bricks[i].getBounds().contains(pointTop)) {
                 ball.setDY(1);
-            }
-            else if (bricks[i].getBounds().contains(pointBottom)) {
+            } else if (bricks[i].getBounds().contains(pointBottom)) {
                 ball.setDY(-1);
             }
         }
@@ -123,18 +125,22 @@ void Level3::collision() {
             ball.setDX(-1);
             ball.setDY(-1);
         }
+
         if (ballLPos >= first && ballLPos < second) {
             ball.setDX(-1);
             ball.setDY(-1 * ball.getDY());
         }
+        
         if (ballLPos >= second && ballLPos < third) {
             ball.setDX(0);
             ball.setDY(-1);
         }
+
         if (ballLPos >= third && ballLPos < fourth) {
             ball.setDX(1);
             ball.setDY(-1 * ball.getDY());
         }
+
         if (ballLPos > fourth) {
             ball.setDX(1);
             ball.setDY(-1);
