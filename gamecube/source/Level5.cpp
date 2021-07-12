@@ -51,6 +51,7 @@ void Level5::input() {
         paddle.move(5);
         return;
     } 
+
     if (dx < -18) {
         paddle.move(-5);
         return;
@@ -82,7 +83,8 @@ void Level5::collision() {
         if (j > 11) {
             levelWon = true;
         }
-    }    
+    }   
+
     for (int i = 0; i < NUMBER_BRICK; i++) {
         if ((ball.getBounds()).intersects(bricks[i].getBounds())) {
             if(bricks[i].isDestroyed()) {
@@ -129,6 +131,7 @@ void Level5::collision() {
             ball.setDX(-1);
             ball.setDY(-1);
         }
+
         if (ballLPos >= first && ballLPos < second) {
             ball.setDX(-1);
             ball.setDY(-1 * ball.getDY());
@@ -137,10 +140,12 @@ void Level5::collision() {
             ball.setDX(0);
             ball.setDY(-1);
         }
+
         if (ballLPos >= third && ballLPos < fourth) {
             ball.setDX(1);
             ball.setDY(-1 * ball.getDY());
         }
+        
         if (ballLPos > fourth) {
             ball.setDX(1);
             ball.setDY(-1);
