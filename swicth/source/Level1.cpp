@@ -49,6 +49,7 @@ void Level1::input(SDL_Event& e) {
         paddle.move(4);
         return;
     } 
+
     if (dx < 0) {
         paddle.move(-4);
         return;
@@ -69,6 +70,7 @@ void Level1::collision() {
         if (bricks[i].isDestroyed()) {
             j++;
         }
+
         if (j > 23) {
             levelWon = true;
         }
@@ -99,6 +101,7 @@ void Level1::collision() {
             else if (bricks[i].getBounds().contains(pointLeft)) {
                 ball.setDX(1);
             }
+
             if (bricks[i].getBounds().contains(pointTop)) {
                 ball.setDY(1);
             }
@@ -120,18 +123,22 @@ void Level1::collision() {
             ball.setDX(-1);
             ball.setDY(-1);
         }
+
         if (ballLPos >= first && ballLPos < second) {
             ball.setDX(-1);
             ball.setDY(-1 * ball.getDY());
         }
+        
         if (ballLPos >= second && ballLPos < third) {
             ball.setDX(0);
             ball.setDY(-1);
         }
+
         if (ballLPos >= third && ballLPos < fourth) {
             ball.setDX(1);
             ball.setDY(-1 * ball.getDY());
         }
+        
         if (ballLPos > fourth) {
             ball.setDX(1);
             ball.setDY(-1);
