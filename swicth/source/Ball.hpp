@@ -8,7 +8,7 @@
 #pragma once
 #include "Sprite.hpp"
 
-class Ball final: public Sprite {
+class Ball final : public Sprite {
 public:
     Ball() : Sprite(), dx(1), dy(-1), s(1) {};
     Ball(int x, int y) : Sprite(x, y), dx(1), dy(-1), s(0) {};
