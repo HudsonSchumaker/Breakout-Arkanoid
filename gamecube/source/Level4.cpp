@@ -77,6 +77,7 @@ void Level4::collision() {
             levelWon = true;
         }
     }    
+
     for (int i = 0; i < NUMBER_BRICK; i++) {
         if ((ball.getBounds()).intersects(bricks[i].getBounds())) {
             if(bricks[i].isDestroyed()) {
@@ -123,18 +124,22 @@ void Level4::collision() {
             ball.setDX(-1);
             ball.setDY(-1);
         }
+
         if (ballLPos >= first && ballLPos < second) {
             ball.setDX(-1);
             ball.setDY(-1 * ball.getDY());
         }
+
         if (ballLPos >= second && ballLPos < third) {
             ball.setDX(0);
             ball.setDY(-1);
         }
+
         if (ballLPos >= third && ballLPos < fourth) {
             ball.setDX(1);
             ball.setDY(-1 * ball.getDY());
         }
+        
         if (ballLPos > fourth) {
             ball.setDX(1);
             ball.setDY(-1);
