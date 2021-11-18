@@ -26,7 +26,7 @@ void Ball::draw(float d) {
 }
 
 /*
-    GRRLIB  GRRLIB_DrawImg method params
+    GRRLIB  GRRLIB_DrawImg method params:
     xpos	Specifies the x-coordinate of the upper-left corner.
     ypos	Specifies the y-coordinate of the upper-left corner.
     tex	    The texture to draw.
