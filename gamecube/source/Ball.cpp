@@ -2,7 +2,7 @@
 // NGC
 // Ball.cpp
 // SchumakerTeam Lab.
-// Hudson Schumaker
+// Hudson Schumaker 
 //
 
 #include "Ball.hpp"
