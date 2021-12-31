@@ -27,8 +27,8 @@ class Canvas {
         virtual void unload() = 0;
         
         void setWidth(int w) { this->w = w; };
-	    int getWidth() const { return w; };
+	int getWidth() const { return w; };
 
-	    void setHeight(int h) { this->h = h; };
-	    int getHeight() const { return h; };
+	void setHeight(int h) { this->h = h; };
+	int getHeight() const { return h; };
 };
