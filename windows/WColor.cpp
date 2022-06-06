@@ -35,7 +35,7 @@ Color WColor::getGray() {
 }
 
 Color WColor::getOrange() {
-    return Color { 255, 200, 0, 255 };
+    return Color { 255, 88, 0, 255 };
 }
 
 Color WColor::getYellow() {
