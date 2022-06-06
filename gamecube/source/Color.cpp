@@ -46,7 +46,7 @@ unsigned long Color::getGray() {
 }
 
 unsigned long Color::getOrange() {
-    return createRGBA(255, 200, 0, 255);
+    return createRGBA(255, 88, 0, 255);
 }
 
 unsigned long Color::getYellow() {
