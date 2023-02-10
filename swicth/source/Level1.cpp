@@ -171,6 +171,11 @@ void Level1::load() {
     ballSprite = SDL_CreateTextureFromSurface(renderer, ball_surf);
     backgroundSprite = SDL_CreateTextureFromSurface(renderer, background_surf);
 
+    SDL_FreeSurface(paddle_surf);
+    SDL_FreeSurface(brick_surf);
+    SDL_FreeSurface(ball_surf);
+    SDL_FreeSurface(background_surf);
+
     int b = 0;
     SDL_Point size;
     SDL_QueryTexture(brickSprite, NULL, NULL, &size.x, &size.y);
@@ -195,9 +200,4 @@ void Level1::unload() {
     SDL_DestroyTexture(brickSprite);
     SDL_DestroyTexture(ballSprite);
     SDL_DestroyTexture(backgroundSprite);
-    
-    SDL_FreeSurface(paddle_surf);
-    SDL_FreeSurface(brick_surf);
-    SDL_FreeSurface(ball_surf);
-    SDL_FreeSurface(background_surf);
 }
