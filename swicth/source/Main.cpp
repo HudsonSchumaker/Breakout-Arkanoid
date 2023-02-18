@@ -29,8 +29,8 @@
 #define JOY_RIGHT 14
 #define JOY_DOWN  15
 
-const int screenWidth = 800;
-const int screenHeight = 450;
+const int screenWidth = 1280;
+const int screenHeight = 720;
 
 void ini();
 void end();
@@ -56,7 +56,7 @@ void ini() {
     romfsInit();
     chdir("romfs:/");
 
-    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
+    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER);
     IMG_Init(IMG_INIT_PNG);
     TTF_Init();
     
@@ -67,7 +67,7 @@ void ini() {
         SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL
     );
     
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
     
     Mix_AllocateChannels(5);
     Mix_OpenAudio(48000, AUDIO_S16, 2, 4096);
@@ -78,9 +78,10 @@ void ini() {
 }
 
 void end() {
+    IMG_Quit();
     Mix_CloseAudio();
     TTF_Quit();
-    IMG_Quit();
+    Mix_Quit();
     SDL_Quit();      
     romfsExit();
 }
