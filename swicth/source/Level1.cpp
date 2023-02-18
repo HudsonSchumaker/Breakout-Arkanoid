@@ -191,7 +191,7 @@ void Level1::load() {
     paddle.setTexture(paddleSprite);
 
     ball = Ball(200, 430);
-    ball.setS(1);
+    ball.setS(2);
     ball.setTexture(ballSprite);
 }
 
