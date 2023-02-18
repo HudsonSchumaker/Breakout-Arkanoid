@@ -67,7 +67,7 @@ void ini() {
         SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL
     );
     
-    renderer = SDL_CreateRenderer(window, -1, 0);
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     
     Mix_AllocateChannels(5);
     Mix_OpenAudio(48000, AUDIO_S16, 2, 4096);
