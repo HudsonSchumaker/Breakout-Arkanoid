@@ -8,7 +8,6 @@
 #include "Level1.hpp"
 #include "Color.hpp"
 #include "Point.hpp"
-
 #include <future>
 #include <iostream>
 
