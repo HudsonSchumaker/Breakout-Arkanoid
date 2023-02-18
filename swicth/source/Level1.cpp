@@ -164,7 +164,7 @@ void Level1::load() {
     paddle_surf = IMG_Load("resources/paddle.png");
     brick_surf = IMG_Load("resources/brick.png");
     ball_surf = IMG_Load("resources/ball.png");
-    background_surf = IMG_Load("resources/backgrund.png");
+    background_surf = IMG_Load("resources/background.png");
 
     paddleSprite = SDL_CreateTextureFromSurface(renderer, paddle_surf);
     brickSprite = SDL_CreateTextureFromSurface(renderer, brick_surf);
