@@ -14,3 +14,5 @@ My version of a mixed game from Breakout(Atari) and Arkanoid(Taito)
 
 > Compiling for Nintendo Switch requires the libnx libraries from [devkitPro](https://devkitpro.org/wiki/Getting_Started). SDL2 for Switch that can installed using pacman. Search for switch sdl ((dkp-)pacman -Ss switch sdl2).
 
+> Compiling for MacOS requires the raylib libraries from [RayLib Github]([https://devkitpro.org/wiki/Getting_Started](https://github.com/raysan5/raylib/releases).
+
